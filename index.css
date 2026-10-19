@@ -1,0 +1,1520 @@
+/* ===============================
+   1. ROOT VARIABLES & RESET
+   =============================== */
+
+/*
+  - Hệ thống biến CSS (CSS Variables) quản lý toàn bộ bảng màu, độ bóng phát quang và kích thước.
+  - Nền chủ đạo: Dark Navy sâu thẳm (#060B18, #0A1128).
+  - Điểm nhấn & Nội dung quan trọng: Xanh lá nhạt (#86EFAC, #4ADE80) và Xanh neon (#39FF14).
+  - Văn bản phụ / nội dung chung: Trắng tinh khiết (#FFFFFF) và Trắng ánh kim (#E2E8F0).
+  - Hiệu ứng phát quang (Glow Effect) làm nổi bật các khối dữ liệu then chốt.
+*/
+:root {
+  /* Bảng màu nền tảng Dark Navy */
+  --bg-navy-darkest: #060B18;       /* Nền đen sâu thẳm toàn trang */
+  --bg-navy-deep: #0A1128;          /* Nền xanh navy thứ cấp */
+  --bg-navy-surface: #101B3B;       /* Nền các khối thẻ card, container */
+  --bg-navy-elevated: rgba(16, 27, 59, 0.75); /* Kính mờ Glassmorphism */
+
+  /* Bảng màu điểm nhấn & Trạng thái phát quang (Accents & Neon Glows) */
+  --accent-green-neon: #39FF14;     /* Xanh neon phát quang công nghệ cao */
+  --accent-green-primary: #4ADE80;  /* Xanh lá tươi điểm nhấn chính */
+  --accent-green-light: #86EFAC;    /* Xanh lá nhạt viền & chữ nổi bật */
+  --accent-green-deep: #22C55E;     /* Xanh lá đậm cho dải gradient */
+  --accent-cyan-neon: #00F2FE;      /* Xanh cyan cho vòng xoay loader */
+  --accent-purple-neon: #D946EF;    /* Tím neon cho vòng xoay loader */
+
+  /* Bảng màu văn bản (Typography Colors) */
+  --text-primary: #FFFFFF;          /* Tiêu đề chính, độ tương phản tối đa */
+  --text-secondary: #E2E8F0;        /* Nội dung thông thường, êm dịu cho mắt */
+  --text-muted: #94A3B8;            /* Chú thích phụ, thông tin bản quyền */
+  --text-highlight: #86EFAC;        /* Văn bản nhấn mạnh, số liệu quan trọng */
+
+  /* Đường viền & Hiệu ứng đổ bóng phát quang (Borders & Glow Shadows) */
+  --border-highlight: rgba(134, 239, 172, 0.35); /* Viền xanh lá mờ tinh tế */
+  --border-subtle: rgba(255, 255, 255, 0.08);   /* Viền phân cách siêu nhẹ */
+  --border-glow-sm: 0 0 12px rgba(74, 222, 128, 0.25);
+  --border-glow-md: 0 0 24px rgba(74, 222, 128, 0.4);
+  --border-glow-lg: 0 0 40px rgba(57, 255, 20, 0.35);
+
+  /* Phông chữ & Bo góc giao diện */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+
+  /* Chuyển động (Transitions) */
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Reset toàn cục chuẩn xác (Global Reset & Box-Sizing) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-navy-darkest);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(20, 35, 75, 0.5) 0%, transparent 60%),
+    radial-gradient(circle at 100% 60%, rgba(10, 25, 60, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(6, 11, 24, 0.9) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--accent-green-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-green-neon);
+  text-shadow: var(--border-glow-sm);
+}
+
+/* Input checkbox ẩn điều khiển mở Drawer Menu thuần CSS */
+.menu-checkbox {
+  position: fixed;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===============================
+   2. PRELOADER ANIMATION (1.5s STAGGERED)
+   =============================== */
+
+/*
+  - Màn hình chờ toàn màn hình (Pure CSS, tuyệt đối không dùng JavaScript).
+  - Sử dụng 3 nửa vòng tròn (semi-circles) với 3 màu sắc khác nhau:
+      + Vòng 1: Xanh lá neon (#39FF14)
+      + Vòng 2: Xanh cyan (#00F2FE)
+      + Vòng 3: Tím neon (#D946EF)
+  - Hiệu ứng: Cả 3 xoay trong chu kỳ 1.5 giây nhưng chạy so le pha lệch nhau 
+    (animation-delay: 0s, 0.5s, 1.0s) tạo nên chuỗi chuyển động nối tiếp liên tục.
+  - Cơ chế tự kết thúc: Sau ~2 chu kỳ (3.2s), keyframe preloaderDismiss tự động
+    fade-out độ mờ về 0 và đặt visibility: hidden để mở khóa toàn bộ trang web.
+*/
+.preloader,
+#preloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-navy-darkest);
+  background-image: radial-gradient(circle at center, #0F1A3A 0%, #060B18 70%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  animation: preloaderDismiss 3.5s forwards cubic-bezier(0.77, 0, 0.175, 1);
+  pointer-events: all;
+}
+
+/* Vùng chứa khung xoay của 3 nửa vòng tròn */
+.loader-spinner {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Khối chung của các nửa vòng tròn (Semi-circles) */
+.semi-circle,
+.loader-circle {
+  position: absolute;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: transparent;
+}
+
+/* Nửa vòng tròn 1: Xanh lá Neon (Đường kính ngoài cùng 110px, delay 0s) */
+.semi-circle:nth-child(1),
+.semi-circle-1 {
+  width: 110px;
+  height: 110px;
+  border-width: 4px;
+  border-top-color: var(--accent-green-neon);
+  border-right-color: var(--accent-green-neon);
+  filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.7));
+  animation: spinStaggered 1.5s cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+  animation-delay: 0s;
+}
+
+/* Nửa vòng tròn 2: Xanh Cyan (Đường kính giữa 80px, delay 0.5s) */
+.semi-circle:nth-child(2),
+.semi-circle-2 {
+  width: 80px;
+  height: 80px;
+  border-width: 4px;
+  border-top-color: var(--accent-cyan-neon);
+  border-left-color: var(--accent-cyan-neon);
+  filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.7));
+  animation: spinStaggered 1.5s cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+  animation-delay: 0.5s;
+}
+
+/* Nửa vòng tròn 3: Tím Neon (Đường kính trong cùng 50px, delay 1.0s) */
+.semi-circle:nth-child(3),
+.semi-circle-3 {
+  width: 50px;
+  height: 50px;
+  border-width: 3px;
+  border-bottom-color: var(--accent-purple-neon);
+  border-right-color: var(--accent-purple-neon);
+  filter: drop-shadow(0 0 8px rgba(217, 70, 239, 0.7));
+  animation: spinStaggered 1.5s cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+  animation-delay: 1.0s;
+}
+
+/* Dòng chữ trạng thái dưới Loader */
+.loader-text {
+  margin-top: 28px;
+  font-size: 0.92rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-green-light);
+  font-weight: 600;
+  text-shadow: var(--border-glow-sm);
+  animation: pulseText 1.5s ease-in-out infinite alternate;
+}
+
+/* Keyframes: Xoay tròn 360 độ chu kỳ 1.5s */
+@keyframes spinStaggered {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Keyframes: Nhịp thở cho dòng chữ trạng thái */
+@keyframes pulseText {
+  0% {
+    opacity: 0.4;
+    letter-spacing: 0.2em;
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 0.28em;
+  }
+}
+
+/* Keyframes: Cơ chế tự động ẩn Preloader mở khóa trang web hoàn toàn không cần JS */
+@keyframes preloaderDismiss {
+  0%, 75% {
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    opacity: 0;
+    visibility: visible;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(1.06);
+    display: none;
+  }
+}
+
+/* ===============================
+   3. TYPOGRAPHY & HIGHLIGHTS
+   =============================== */
+
+/* Header Kính Mờ Tinh Giản (Sticky Frosted Header) */
+header#top {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background-color: rgba(6, 11, 24, 0.92);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 14px 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-brand .brand-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-brand strong {
+  color: var(--accent-green-neon);
+  text-shadow: var(--border-glow-sm);
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+}
+
+.header-brand .brand-subtitle {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* Khối Thao tác & Nút Ba gạch trên Header */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.btn-pitch-deck,
+.btn-invest-quick {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.btn-pitch-deck {
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+}
+
+.btn-pitch-deck:hover {
+  border-color: var(--border-highlight);
+  color: var(--text-primary);
+  background: rgba(134, 239, 172, 0.08);
+}
+
+.btn-invest-quick {
+  border: 1px solid var(--border-highlight);
+  background: rgba(74, 222, 128, 0.12);
+  color: var(--accent-green-light);
+  box-shadow: var(--border-glow-sm);
+}
+
+.btn-invest-quick:hover {
+  background: var(--accent-green-primary);
+  color: var(--bg-navy-darkest);
+  border-color: var(--accent-green-neon);
+  box-shadow: var(--border-glow-md);
+}
+
+/* 
+  ---------------------------------------------------------------------------
+  NÚT BA GẠCH (HAMBURGER BUTTON) & CHUYỂN ĐỘNG THÀNH DẤU 'X'
+  - Thiết kế gồm 3 thanh ngang (.bar).
+  - Khi #menu-toggle:checked, thanh trên và dưới xoay 45 độ, thanh giữa biến mất.
+  ---------------------------------------------------------------------------
+*/
+.hamburger-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5.5px;
+  cursor: pointer;
+  background: rgba(16, 27, 59, 0.7);
+  border: 1px solid var(--border-highlight);
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  box-shadow: var(--border-glow-sm);
+  transition: var(--transition-fast);
+  user-select: none;
+  z-index: 1002;
+}
+
+.hamburger-btn:hover {
+  background: rgba(74, 222, 128, 0.16);
+  border-color: var(--accent-green-neon);
+  box-shadow: var(--border-glow-md);
+  transform: scale(1.04);
+}
+
+.hamburger-btn .bar {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background-color: var(--accent-green-light);
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.5, 0, 0.1, 1),
+              opacity 0.25s ease,
+              background-color 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animation: Biến đổi 3 gạch thành dấu 'X' khi menu mở */
+#menu-toggle:checked ~ header .hamburger-btn .bar-top {
+  transform: translateY(8px) rotate(45deg);
+  background-color: var(--accent-green-neon);
+}
+
+#menu-toggle:checked ~ header .hamburger-btn .bar-mid {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+#menu-toggle:checked ~ header .hamburger-btn .bar-bot {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: var(--accent-green-neon);
+}
+
+/* 
+  ---------------------------------------------------------------------------
+  MENU ĐIỀU HƯỚNG XUẤT HIỆN TỪ DƯỚI DẤU BA GẠCH (DROPDOWN EXTENSION)
+  - Yêu cầu: "Khi ấn vô dấu ba gạch, các phần con sẽ xuất hiện từ dưới mấy dấu
+    ba gạch đó chứ không còn xuất hiện từ phải qua nữa".
+  - Được neo ngay dưới dấu ba gạch (top right), phóng to và trượt xuống từ trên.
+  ---------------------------------------------------------------------------
+*/
+.drawer-nav {
+  position: fixed;
+  top: 68px;
+  right: 20px;
+  width: min(340px, calc(100vw - 32px));
+  max-height: calc(100vh - 84px);
+  background-color: rgba(6, 11, 24, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-highlight);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.8), var(--border-glow-md);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px;
+  overflow-y: auto;
+  
+  /* Hiệu ứng xuất hiện từ dưới dấu ba gạch: trượt từ trên xuống, không còn từ phải qua */
+  transform-origin: top right;
+  transform: translateY(-16px) scale(0.96);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease,
+              visibility 0.35s;
+}
+
+/* Khi Checkbox được check: Menu mở bung xuống từ dưới dấu ba gạch */
+#menu-toggle:checked ~ .drawer-nav {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 18px;
+}
+
+.drawer-title strong {
+  font-size: 1.15rem;
+  color: var(--accent-green-neon);
+  display: block;
+}
+
+.drawer-title span {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.drawer-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 1;
+  transition: var(--transition-fast);
+}
+
+.drawer-close-btn:hover {
+  background: var(--accent-green-primary);
+  color: var(--bg-navy-darkest);
+  border-color: var(--accent-green-neon);
+}
+
+.drawer-menu-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-menu-list ul li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: var(--transition-fast);
+}
+
+.drawer-menu-list ul li a:hover {
+  color: var(--text-primary);
+  background: rgba(74, 222, 128, 0.1);
+  border-color: var(--border-highlight);
+  box-shadow: var(--border-glow-sm);
+  transform: translateX(3px);
+}
+
+.nav-idx {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-green-neon);
+  font-weight: 700;
+}
+
+.drawer-cta-box {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.drawer-btn-primary {
+  display: block;
+  text-align: center;
+  padding: 11px;
+  background: linear-gradient(135deg, var(--accent-green-primary) 0%, var(--accent-green-deep) 100%);
+  color: var(--bg-navy-darkest) !important;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--border-glow-md);
+}
+
+.drawer-btn-secondary {
+  display: block;
+  text-align: center;
+  padding: 9px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+}
+
+.drawer-footer-note {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Lớp phủ mờ nền khi mở Menu */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 8, 18, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+#menu-toggle:checked ~ .drawer-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Vùng bao quát nội dung (Main Container) */
+main {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 16px 80px 16px;
+}
+
+/* Tiêu đề & Phân cấp (Fluid Headings) */
+h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #FFFFFF 30%, var(--accent-green-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: clamp(1.45rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin: 28px 0 16px 0;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--accent-green-primary);
+  box-shadow: var(--border-glow-sm);
+  border-radius: var(--radius-pill);
+  margin-top: 8px;
+}
+
+h3 {
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-weight: 600;
+  color: var(--accent-green-light);
+  margin: 20px 0 10px 0;
+}
+
+h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 14px 0 8px 0;
+}
+
+p {
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+}
+
+/* Các thành phần nhấn mạnh (Highlights) */
+strong, b {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+p strong, li strong {
+  color: var(--text-highlight);
+}
+
+em {
+  color: var(--accent-green-light);
+}
+
+main hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-highlight), transparent);
+  margin: 54px 0;
+}
+
+/* 
+  ---------------------------------------------------------------------------
+  KHỐI SONG SONG: SỨ MỆNH DỰ ÁN (1) VÀ VẤN ĐỀ THỰC TẾ (2)
+  - Bố trí 2 cột song song (Side-by-side) bằng chiều cao nhau.
+  - Canh đều hai bên (Text-align: justify) cho tất cả văn bản và danh sách con.
+  ---------------------------------------------------------------------------
+*/
+.mission-problem-parallel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin: 28px 0;
+}
+
+@media (min-width: 768px) {
+  .mission-problem-parallel {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+}
+
+.mission-problem-parallel article {
+  margin-bottom: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Canh đều hai bên (Justified Text) tạo cảm giác trang trọng, cân bằng */
+.mission-problem-parallel p,
+.mission-problem-parallel li,
+.col-mission p,
+.col-problem p,
+.col-mission li,
+.col-problem li {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* Thẻ Card Kiến trúc AI & Vision (Cards & Articles) */
+section {
+  margin-bottom: 48px;
+}
+
+article {
+  background: var(--bg-navy-surface);
+  background-image: linear-gradient(145deg, rgba(20, 35, 75, 0.45) 0%, rgba(10, 17, 40, 0.6) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Viền phát quang nổi bật cho các khối then chốt */
+article:hover,
+article[aria-labelledby*="architecture"],
+article[aria-labelledby*="terms"],
+.col-mission:hover,
+.col-problem:hover {
+  border-color: var(--border-highlight);
+  box-shadow: var(--border-glow-sm), 0 12px 32px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px);
+}
+
+article ul,
+aside ul,
+details ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+article li,
+aside li,
+details li {
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+article li::marker,
+aside li::marker {
+  color: var(--accent-green-primary);
+}
+
+/* Khối thông tin bên lề Highlight (Aside Callout) */
+aside {
+  background: rgba(16, 27, 59, 0.85);
+  border: 1px solid var(--accent-green-primary);
+  border-left-width: 5px;
+  border-radius: var(--radius-md);
+  padding: 22px 20px;
+  margin: 28px 0;
+  box-shadow: var(--border-glow-sm);
+}
+
+aside h3 {
+  color: var(--accent-green-neon);
+  margin-top: 0;
+}
+
+/* Trích dẫn Cố vấn (Blockquote) */
+blockquote {
+  border-left: 3px solid var(--accent-green-primary);
+  padding-left: 18px;
+  margin: 18px 0;
+  font-style: italic;
+  color: var(--text-primary);
+  background: rgba(74, 222, 128, 0.04);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--accent-green-light);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* Bảng Benchmark & Ngân sách (Table & Figures) */
+figure {
+  margin: 28px 0;
+  overflow-x: auto;
+  background: var(--bg-navy-surface);
+  border: 1px solid var(--border-highlight);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--border-glow-sm);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+  min-width: 640px;
+}
+
+table th,
+table td {
+  padding: 12px 14px;
+  border: 1px solid var(--border-subtle);
+}
+
+thead th {
+  background-color: #121F45;
+  color: var(--accent-green-light);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--accent-green-primary);
+}
+
+tbody tr:hover {
+  background-color: rgba(74, 222, 128, 0.06);
+}
+
+table td:nth-child(2) {
+  background-color: rgba(74, 222, 128, 0.08);
+  border-left: 1px solid var(--border-highlight);
+  border-right: 1px solid var(--border-highlight);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+tfoot td {
+  background-color: rgba(6, 11, 24, 0.8);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+figcaption {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Lộ trình Roadmap Dạng Tuyến tính (Ordered List Timeline) */
+ol {
+  list-style: none;
+  counter-reset: roadmap-counter;
+  position: relative;
+  padding-left: 20px;
+}
+
+ol::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 3px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent-green-neon), var(--accent-cyan-neon), var(--border-subtle));
+}
+
+ol > li {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+ol > li::before {
+  counter-increment: roadmap-counter;
+  content: counter(roadmap-counter);
+  position: absolute;
+  left: -27px;
+  top: 18px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--bg-navy-darkest);
+  border: 2px solid var(--accent-green-neon);
+  border-radius: 50%;
+  color: var(--accent-green-neon);
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--border-glow-sm);
+  z-index: 2;
+}
+
+time {
+  display: inline-block;
+  background: rgba(74, 222, 128, 0.12);
+  color: var(--accent-green-neon);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid var(--border-highlight);
+  margin-bottom: 8px;
+}
+
+/* Tiện ích Hỏi đáp FAQ (Details / Summary) */
+details {
+  background: var(--bg-navy-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  transition: var(--transition-normal);
+}
+
+details[open] {
+  border-color: var(--border-highlight);
+  box-shadow: var(--border-glow-sm);
+}
+
+summary {
+  cursor: pointer;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  outline: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  color: var(--accent-green-primary);
+  transition: transform 0.2s ease;
+}
+
+details[open] summary::after {
+  content: "−";
+  transform: rotate(180deg);
+}
+
+details p, details ul {
+  margin-top: 14px;
+}
+
+/* Biểu mẫu Thẩm định Đầu tư (Form) */
+form {
+  background: var(--bg-navy-surface);
+  border: 1px solid var(--border-highlight);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--border-glow-sm);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+legend {
+  font-size: 1.2rem;
+  color: var(--accent-green-light);
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: var(--bg-navy-darkest);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-green-primary);
+  box-shadow: var(--border-glow-sm);
+  background-color: #0E162E;
+}
+
+button[type="submit"] {
+  background: linear-gradient(135deg, var(--accent-green-primary) 0%, var(--accent-green-deep) 100%);
+  color: var(--bg-navy-darkest);
+  border: none;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--border-glow-md);
+  transition: var(--transition-bounce);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--border-glow-lg);
+  filter: brightness(1.1);
+}
+
+button[type="reset"] {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  padding: 14px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+button[type="reset"]:hover {
+  color: var(--text-primary);
+  border-color: var(--text-muted);
+}
+
+/* 
+  ---------------------------------------------------------------------------
+  CHÂN TRANG (FOOTER):
+  - Đã loại bỏ <hr> và tiêu đề dài theo yêu cầu.
+  - Khối 3 cột nội dung: Văn phòng, Kênh kết nối, Hồ sơ thẩm định nằm chung 1 hàng.
+  - Đã khôi phục các đường link cụ thể của hồ sơ pháp lý.
+  ---------------------------------------------------------------------------
+*/
+footer {
+  background-color: #040812;
+  border-top: 1px solid var(--border-subtle);
+  padding: 44px 20px 80px 20px;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  position: relative;
+}
+
+/* Khối 3 Cột Nội Dung Chân Trang Nằm Chung Một Hàng */
+.footer-main-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+@media (min-width: 768px) {
+  .footer-main-row {
+    grid-template-columns: 1.25fr 1fr 1.35fr;
+    gap: 32px;
+    align-items: start;
+  }
+}
+
+.footer-col h4 {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  margin: 0 0 12px 0;
+}
+
+.footer-col address {
+  font-style: normal;
+}
+
+.footer-col address p {
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  line-height: 1.55;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+
+.footer-col ul li a:hover {
+  color: var(--accent-green-light);
+  text-shadow: var(--border-glow-sm);
+}
+
+footer small {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ===============================
+   4. FUNDING PROGRESS BAR (LAB BUBBLES EFFECT)
+   =============================== */
+
+/*
+  - Thiết kế thanh tiến độ gọi vốn mô phỏng Ống nghiệm sinh hóa công nghệ cao (Biochemical Tube).
+  - Vỏ ống bo tròn dạng viên thuốc (pill shape), viền kính bóng, nền tối mờ phản xạ chiều sâu.
+  - Dải chất lỏng màu xanh lá neon (#22C55E / #39FF14) phát quang rực rỡ (box-shadow).
+  - TỐI ƯU BỌT KHÍ:
+      + Giảm tỉ lệ bọt khí xuất hiện đi 50% (mật độ thưa, kích thước vi mô).
+      + Bọt khí KHÔNG xuất hiện cùng lúc: Phân rã thành 2 lớp animation độc lập mang chu kỳ
+        số nguyên tố lệch pha nhau (4.1s và 5.9s) kèm animation-delay so le âm, tạo hiệu ứng
+        bong bóng sinh hóa nổi lên ngẫu nhiên, không bao giờ đồng bộ hóa.
+*/
+
+/* Vùng bao chứa thanh đo tiến độ */
+.funding-tracker,
+.funding-container {
+  background: var(--bg-navy-surface);
+  border: 1px solid var(--border-highlight);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  margin: 28px 0;
+  box-shadow: var(--border-glow-sm), 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Tiêu đề & Thông số số liệu */
+.tracker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tracker-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.tracker-metrics {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--accent-green-neon);
+  text-shadow: var(--border-glow-sm);
+  font-weight: 700;
+}
+
+/* Vỏ Ống Nghiệm Thủy Tinh (Glass Test Tube Shell) */
+.test-tube,
+.progress-bar-tube {
+  position: relative;
+  width: 100%;
+  height: 38px;
+  background: rgba(6, 11, 24, 0.85);
+  border-radius: var(--radius-pill);
+  border: 2px solid rgba(134, 239, 172, 0.45);
+  padding: 3px;
+  box-shadow: 
+    inset 0 4px 12px rgba(0, 0, 0, 0.8),
+    inset 0 -2px 6px rgba(134, 239, 172, 0.2),
+    0 0 16px rgba(74, 222, 128, 0.2);
+  overflow: hidden;
+}
+
+/* Vệt bóng kính phản quang trên bề mặt ống nghiệm (Glass Gloss Highlight) */
+.test-tube::after,
+.progress-bar-tube::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 20px;
+  right: 20px;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-radius: var(--radius-pill);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Dải chất lỏng Xanh Neon bên trong ống (The Bio-Liquid Fill) */
+.tube-liquid,
+.progress-fill {
+  position: relative;
+  height: 100%;
+  width: 78%; /* Tương ứng 78% mục tiêu vốn đạt được (390.000 / 500.000 USD) */
+  background: linear-gradient(90deg, #15803D 0%, #22C55E 40%, #4ADE80 80%, #39FF14 100%);
+  border-radius: var(--radius-pill);
+  box-shadow: 
+    0 0 20px rgba(57, 255, 20, 0.8),
+    inset 0 2px 4px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 
+  LỚP BỌT KHÍ 1: Mật độ thưa (Giảm 50%), chu kỳ 4.1s trễ -1.3s
+*/
+.tube-liquid::before,
+.progress-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Chỉ còn 2 hạt bọt khí thưa thớt, kích thước nhỏ 2px - 2.5px */
+  background-image: 
+    radial-gradient(circle at 18% 90%, rgba(255, 255, 255, 0.85) 2px, transparent 3.5px),
+    radial-gradient(circle at 74% 85%, rgba(255, 255, 255, 0.75) 2.5px, transparent 4px);
+  background-size: 220px 48px;
+  animation: labBubblesRandom1 4.1s cubic-bezier(0.35, 0.1, 0.25, 1) infinite;
+  animation-delay: -1.3s;
+  z-index: 2;
+}
+
+/* 
+  LỚP BỌT KHÍ 2: Xuất hiện so le ngẫu nhiên (Chu kỳ 5.9s, trễ -3.7s, kích thước 3px)
+*/
+.tube-liquid::after,
+.progress-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* 1 hạt bọt khí đơn lẻ ở vị trí trung tâm, xuất hiện lệch pha hoàn toàn */
+  background-image: 
+    radial-gradient(circle at 46% 95%, rgba(255, 255, 255, 0.8) 3px, transparent 4.5px);
+  background-size: 310px 52px;
+  animation: labBubblesRandom2 5.9s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+  animation-delay: -3.7s;
+  z-index: 3;
+}
+
+/* Thông tin chân tiến độ */
+.tracker-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Keyframes Bọt khí 1: Nổi lên với quỹ đạo chao nghiêng nhẹ sang phải */
+@keyframes labBubblesRandom1 {
+  0% {
+    background-position: 0px 48px, 40px 48px;
+    opacity: 0.15;
+  }
+  25% {
+    opacity: 0.85;
+  }
+  75% {
+    opacity: 0.65;
+  }
+  100% {
+    background-position: 18px -48px, 55px -48px;
+    opacity: 0.1;
+  }
+}
+
+/* Keyframes Bọt khí 2: Nổi lên chậm rãi hơn với quỹ đạo chao nhẹ sang trái */
+@keyframes labBubblesRandom2 {
+  0% {
+    background-position: 80px 52px;
+    opacity: 0.1;
+  }
+  40% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.55;
+  }
+  100% {
+    background-position: 65px -52px;
+    opacity: 0.05;
+  }
+}
+
+/* ===============================
+   5. FLOATING PULSING CTA BUTTON
+   =============================== */
+
+/*
+  - Nút liên hệ đặt cố định ở góc dưới cùng bên phải màn hình.
+  - Tọa độ: position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  - Hiệu ứng chuyển động: Phập phồng liên tục (pulsating scale + breathing ripple wave),
+    tỏa vầng sáng xanh lá (#86EFAC, #39FF14) để thu hút thị giác nhà đầu tư.
+*/
+.floating-contact-cta,
+.floating-cta,
+a[href="#contact"].floating-cta-link {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  background: linear-gradient(135deg, var(--accent-green-primary) 0%, var(--accent-green-deep) 100%);
+  color: var(--bg-navy-darkest) !important;
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--accent-green-neon);
+  cursor: pointer;
+  box-shadow: 
+    0 0 0 0 rgba(74, 222, 128, 0.7),
+    0 8px 24px rgba(0, 0, 0, 0.45);
+  animation: breathingPulse 2.4s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  user-select: none;
+}
+
+/* Chấm đèn tín hiệu radar bên trong nút CTA */
+.floating-contact-cta::before,
+.floating-cta::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background-color: var(--bg-navy-darkest);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--bg-navy-darkest);
+}
+
+/* Hover: Tạm dừng nhịp thở, phóng to nhẹ và tăng sáng */
+.floating-contact-cta:hover,
+.floating-cta:hover {
+  animation-play-state: paused;
+  transform: scale(1.08) translateY(-2px);
+  filter: brightness(1.15);
+  box-shadow: 
+    0 0 25px rgba(57, 255, 20, 0.8),
+    0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Keyframes: Chuyển động phập phồng (Breathing & Pulsating Glow Ripple) */
+@keyframes breathingPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 
+      0 0 0 0 rgba(74, 222, 128, 0.7),
+      0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 
+      0 0 0 16px rgba(74, 222, 128, 0),
+      0 12px 28px rgba(57, 255, 20, 0.45);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 
+      0 0 0 0 rgba(74, 222, 128, 0),
+      0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ===============================
+   6. MOBILE-FIRST RESPONSIVE
+   =============================== */
+
+/*
+  - Mặc định tất cả CSS phía trên tối ưu Mobile-First cho màn hình cảm ứng nhỏ (< 768px).
+  - Media Query mở rộng giao diện đa cột cho Tablet (>= 768px) và Desktop (>= 1024px).
+*/
+
+/* --------------------------------------------------------------------------
+   A. MOBILE SPECIAL RULES (< 768px)
+   - Ở Header: Chỉ hiện duy nhất "Suiko AI" và Dấu Ba Gạch.
+   - Các phần con trượt xuống từ dưới dấu ba gạch.
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  /* Ẩn khẩu hiệu phụ để header chỉ còn chữ "Suiko AI" */
+  .brand-subtitle {
+    display: none !important;
+  }
+
+  /* Ẩn hai nút CTA dài trên header mobile */
+  .btn-pitch-deck,
+  .btn-invest-quick {
+    display: none !important;
+  }
+
+  .header-actions {
+    gap: 0;
+  }
+
+  .header-brand .brand-link strong {
+    font-size: 1.35rem;
+  }
+
+  header#top {
+    padding: 12px 18px;
+  }
+
+  /* Menu xuất hiện ngay dưới dấu ba gạch trên màn hình điện thoại */
+  .drawer-nav {
+    top: 64px;
+    right: 14px;
+    width: calc(100vw - 28px);
+    max-width: 310px;
+    max-height: calc(100vh - 80px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   B. TABLET BREAKPOINT (Từ 768px trở lên)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  header#top {
+    padding: 16px 36px;
+  }
+
+  main {
+    padding: 40px 32px 100px 32px;
+  }
+
+  /* Khối Giới thiệu Hero mở rộng */
+  section#overview {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* Lưới 2 cột cho các thẻ thông số công nghệ và đội ngũ */
+  section#technology,
+  section#team {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  section#technology > header,
+  section#team > header,
+  section#technology > figure {
+    grid-column: 1 / -1;
+  }
+
+  footer {
+    padding: 56px 40px 80px 40px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   C. DESKTOP BREAKPOINT (Từ 1024px trở lên)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  main {
+    padding: 56px 48px 120px 48px;
+  }
+
+  /* Hero Section kết hợp Aside Traction nằm kế bên tỉ lệ 1.8 : 1.2 */
+  section#overview {
+    display: grid;
+    grid-template-columns: 1.8fr 1.2fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  section#overview > header,
+  section#overview > .mission-problem-parallel {
+    grid-column: 1 / -1;
+  }
+
+  section#overview > aside {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+  }
+
+  /* Form kêu gọi đầu tư chia 2 cột cân đối */
+  form fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+  }
+
+  form legend {
+    grid-column: 1 / -1;
+  }
+
+  form p:has(textarea),
+  form p:has(input[type="checkbox"]),
+  form p:has(button) {
+    grid-column: 1 / -1;
+  }
+
+  /* Nút Floating CTA góc màn hình desktop */
+  .floating-contact-cta,
+  .floating-cta {
+    bottom: 32px;
+    right: 36px;
+    padding: 15px 26px;
+    font-size: 1rem;
+  }
+}
