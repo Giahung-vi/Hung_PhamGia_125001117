@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<!-- 
+  =============================================================================
+  THẺ: <!DOCTYPE html>
+  - Vai trò ngữ nghĩa HTML5: Khai báo chuẩn tài liệu (DTD - Document Type Definition) 
+    giúp trình duyệt nhận biết trang web tuân thủ tiêu chuẩn HTML5 hiện đại nhất, 
+    kích hoạt chế độ kết xuất chuẩn (Standards Mode) thay vì Quirks Mode.
+  - Ý nghĩa đối với trang gọi vốn: Đảm bảo tính tương thích và hiển thị đồng nhất 
+    trên mọi trình duyệt của các nhà đầu tư (Chrome, Safari, Edge, Firefox trên cả 
+    Desktop, iPad lẫn Mobile), tạo ấn tượng chuyên nghiệp ngay từ cấp độ kỹ thuật nền tảng.
+  =============================================================================
+-->
+<html lang="vi">
+<!-- 
+  =============================================================================
+  THẺ: <html lang="vi">
+  - Vai trò ngữ nghĩa HTML5: Thẻ gốc (root element) bao bọc toàn bộ mã nguồn của trang, 
+    thuộc tính 'lang="vi"' chỉ định ngôn ngữ chính của tài liệu là tiếng Việt.
+  - Ý nghĩa đối với trang gọi vốn: Giúp các công cụ tìm kiếm (Google, Bing) và công cụ 
+    hỗ trợ tiếp cận (Screen Readers) xác định chính xác ngôn ngữ để lập chỉ mục SEO bản địa 
+    tốt hơn, phục vụ tiếp cận các quỹ đầu tư mạo hiểm nội địa và khu vực Đông Nam Á.
+  =============================================================================
+-->
+<head>
+  <!-- 
+    ===========================================================================
+    THẺ: <head>
+    - Vai trò ngữ nghĩa HTML5: Chứa toàn bộ siêu dữ liệu (metadata), thông tin chỉ dẫn 
+      và cấu hình cho trình duyệt cùng bot tìm kiếm; không hiển thị trực tiếp lên giao diện.
+    - Ý nghĩa đối với trang gọi vốn: Nơi thiết lập nhận diện thương hiệu, siêu dữ liệu 
+      xã hội (Open Graph, Twitter Card) để khi chia sẻ liên kết Pitch Deck trên LinkedIn, 
+      Twitter, Telegram hay Zalo, bản xem trước (preview card) sẽ hiển thị đầy đủ hình ảnh, 
+      tiêu đề và tóm tắt gây ấn tượng với các nhà đầu tư mạo hiểm.
+    ===========================================================================
+  -->
+  <meta charset="UTF-8">
+  <!-- 
+    ===========================================================================
+    THẺ: <meta charset="UTF-8">
+    - Vai trò ngữ nghĩa HTML5: Khai báo bảng mã ký tự chuẩn UTF-8 toàn cầu.
+    - Ý nghĩa đối với trang gọi vốn: Đảm bảo toàn bộ nội dung tiếng Việt có dấu, 
+      thuật ngữ toán học, ký hiệu tiền tệ quốc tế ($ USD, € EUR) và các ký tự đặc biệt 
+      không bị lỗi font (mojibake) trước mắt hội đồng đầu tư.
+    ===========================================================================
+  -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 
+    ===========================================================================
+    THẺ: <meta name="viewport">
+    - Vai trò ngữ nghĩa HTML5: Thiết lập kích thước khung nhìn (viewport) tỉ lệ 1:1 
+      theo thiết bị của người dùng.
+    - Ý nghĩa đối với trang gọi vốn: Rất nhiều nhà đầu tư thiên thần (Angels) và đối tác 
+      quỹ (VC Partners) đọc pitch deck hoặc duyệt website trên điện thoại di động trong lúc 
+      di chuyển; thẻ này đảm bảo trang web co giãn và hiển thị tối ưu trên màn hình di động.
+    ===========================================================================
+  -->
+
+  <title>Suiko AI - Mô hình Nền tảng Đa phương thức Mã nguồn mở cho Thị trường Mới nổi | Seed Round 500.000 USD</title>
+  <!-- 
+    ===========================================================================
+    THẺ: <title>
+    - Vai trò ngữ nghĩa HTML5: Định nghĩa tiêu đề tài liệu xuất hiện trên tab trình duyệt, 
+      lịch sử duyệt web và là tiêu đề chính hiển thị trên kết quả tìm kiếm (SERP).
+    - Ý nghĩa đối với trang gọi vốn: Khẳng định rõ tên thương hiệu (Suiko AI), định vị sản phẩm 
+      (Mô hình Đa phương thức Mã nguồn mở), thị trường mục tiêu (Thị trường mới nổi) và thông tin 
+      vòng gọi vốn (Seed Round $500K) để thu hút đúng đối tượng nhà đầu tư công nghệ cao.
+    ===========================================================================
+  -->
+
+  <!-- Siêu dữ liệu SEO On-Page tiêu chuẩn -->
+  <meta name="description" content="Hồ sơ gọi vốn vòng hạt giống (Seed Round 500.000 USD) của dự án Suiko AI - Mô hình nền tảng đa phương thức mã nguồn mở tối ưu hiệu năng tính toán và chi phí cho các thị trường mới nổi tại Đông Nam Á.">
+  <meta name="keywords" content="Suiko AI, gọi vốn AI, Seed Round, Multimodal AI, Open Source AI, Trí tuệ nhân tạo Đông Nam Á, Đầu tư mạo hiểm AI, Compute Efficiency, SAFE Note">
+  <meta name="author" content="Đội ngũ Sáng lập Suiko AI (Suiko AI Founding Team)">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://suiko.ai/">
+
+  <!-- Open Graph Meta Tags (Phục vụ chia sẻ trên Facebook, LinkedIn, Zalo) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://suiko.ai/">
+  <meta property="og:title" content="Suiko AI - Gọi vốn Vòng Hạt giống (Seed Round) 500.000 USD">
+  <meta property="og:description" content="Đột phá công nghệ AI đa phương thức mã nguồn mở tối ưu chi phí huấn luyện và suy luận cho các nền kinh tế đang phát triển. Khám phá cơ hội đồng hành cùng Suiko AI.">
+  <meta property="og:image" content="https://suiko.ai/assets/images/suiko-pitch-og.jpg">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Twitter Card Meta Tags (Phục vụ chia sẻ trên nền tảng X / Twitter) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://suiko.ai/">
+  <meta name="twitter:title" content="Suiko AI - Open-Source Multimodal Foundation Model for Emerging Markets">
+  <meta name="twitter:description" content="Tham gia vòng gọi vốn hạt giống 500.000 USD cùng Suiko AI. Tối ưu hóa tính toán, đa ngữ địa phương, sẵn sàng thương mại hóa.">
+  <meta name="twitter:image" content="https://suiko.ai/assets/images/suiko-pitch-twitter.jpg">
+
+  <!-- Liên kết File Phong cách Toàn trang (Pure CSS3 Stylesheet) -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- 
+    ===========================================================================
+    MÀN HÌNH CHỜ (PRELOADER) THUẦN CSS:
+    - 3 nửa vòng tròn đồng tâm với 3 mã màu công nghệ (Xanh lá neon, Cyan, Tím neon).
+    - Chu kỳ 1.5s xoay so le pha lệch nhau, tự động fade-out mở khóa trang web sau 3.2s.
+    ===========================================================================
+  -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="loader-spinner">
+      <div class="semi-circle semi-circle-1"></div>
+      <div class="semi-circle semi-circle-2"></div>
+      <div class="semi-circle semi-circle-3"></div>
+    </div>
+    <p class="loader-text">SUIKO AI &bull; INITIALIZING</p>
+  </div>
+
+  <!-- 
+    ===========================================================================
+    THẺ: <body>
+    - Vai trò ngữ nghĩa HTML5: Đại diện cho toàn bộ nội dung hiển thị thực tế của 
+      tài liệu web mà người dùng tương tác trực tiếp.
+    - Ý nghĩa đối với trang gọi vốn: Chứa đựng toàn bộ câu chuyện kinh doanh (Pitch Narrative), 
+      luận điểm đầu tư (Investment Thesis), dữ liệu kiểm chứng và lời kêu gọi đầu tư.
+    ===========================================================================
+  -->
+
+  <!-- Input Checkbox điều khiển trạng thái Drawer Menu thuần CSS (Không dùng JS) -->
+  <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Đóng mở menu điều hướng">
+
+  <!-- 
+    ===========================================================================
+    THẺ: <header>
+    - Vai trò ngữ nghĩa HTML5: Đóng vai trò là phần đầu trang, chứa đựng nội dung nhập đề, 
+      logo nhận diện thương hiệu, tiêu đề chính hoặc các công cụ điều hướng cấp cao.
+    - Ý nghĩa đối với trang gọi vốn: Tạo ấn tượng đầu tiên (First Impression) với nhà đầu tư, 
+      khẳng định sự hiện diện của thương hiệu Suiko AI và cung cấp lối tắt nhanh chóng đến 
+      các tài liệu then chốt như Pitch Deck và form cam kết góp vốn.
+    ===========================================================================
+  -->
+  <header id="top">
+    <div class="header-brand">
+      <p>
+        <a href="#top" class="brand-link">
+          <strong>Suiko AI</strong><em class="brand-subtitle"> &mdash; Mô hình Nền tảng Đa phương thức Mã nguồn mở</em>
+        </a>
+      </p>
+    </div>
+
+    <!-- Khối thao tác nhanh bên phải Header: Nút CTA & Nút Ba gạch Hamburger -->
+    <div class="header-actions">
+      <a href="https://suiko.ai/docs/Suiko_AI_Pitch_Deck_Seed_Round.pdf" download="Suiko_AI_Pitch_Deck_Seed_Round.pdf" class="btn-pitch-deck">
+        Tải Pitch Deck
+      </a>
+      <a href="#fundraising" class="btn-invest-quick">
+        Đầu tư Seed 500K
+      </a>
+
+      <!-- 
+        =======================================================================
+        NÚT BA GẠCH (HAMBURGER BUTTON):
+        - Tạo bởi 3 thanh ngang (span), khi bấm vào sẽ kích hoạt hiệu ứng xoay chéo 
+          thành dấu 'X' và mở ngăn kéo điều hướng (Off-Canvas Drawer) từ bên phải.
+        =======================================================================
+      -->
+      <label for="menu-toggle" class="hamburger-btn" aria-label="Mở danh mục điều hướng">
+        <span class="bar bar-top"></span>
+        <span class="bar bar-mid"></span>
+        <span class="bar bar-bot"></span>
+      </label>
+    </div>
+  </header>
+
+  <!-- 
+    ===========================================================================
+    CỬA SỔ ĐIỀU HƯỚNG TRƯỢT TỪ BÊN PHẢI (OFF-CANVAS DRAWER):
+    - Chuyển toàn bộ các thư mục con (jump links) qua ngăn kéo này.
+    - Trượt êm ái từ lề phải màn hình ra ngoài khi bấm dấu ba gạch.
+    ===========================================================================
+  -->
+  <aside class="drawer-nav" aria-label="Ngăn kéo điều hướng danh mục đầu tư">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <strong>SUIKO AI</strong>
+        <span>Hồ Sơ Gọi Vốn Seed</span>
+      </div>
+      <!-- Nút đóng dấu X bên trong ngăn kéo -->
+      <label for="menu-toggle" class="drawer-close-btn" aria-label="Đóng danh mục điều hướng">&times;</label>
+    </div>
+
+    <!-- Danh sách các thư mục con chuyển sang đây -->
+    <nav class="drawer-menu-list">
+      <ul>
+        <li><a href="#overview"><span class="nav-idx">01</span> Tổng quan Sứ mệnh &amp; Vấn đề</a></li>
+        <li><a href="#technology"><span class="nav-idx">02</span> Công nghệ Đột phá &amp; Benchmark</a></li>
+        <li><a href="#fundraising"><span class="nav-idx">03</span> Mục tiêu Gọi vốn &amp; Ngân sách</a></li>
+        <li><a href="#roadmap"><span class="nav-idx">04</span> Lộ trình Phát triển 2025&ndash;2026</a></li>
+        <li><a href="#team"><span class="nav-idx">05</span> Đội ngũ Sáng lập &amp; Cố vấn</a></li>
+        <li><a href="#faq"><span class="nav-idx">06</span> Thắc mắc Thẩm định (FAQ)</a></li>
+        <li><a href="#contact"><span class="nav-idx">07</span> Đăng ký Tham gia Đầu tư</a></li>
+      </ul>
+    </nav>
+
+    <div class="drawer-cta-box">
+      <a href="#fundraising" class="drawer-btn-primary">Cam kết Góp vốn (SAFE Note)</a>
+      <a href="https://suiko.ai/docs/Suiko_AI_Pitch_Deck_Seed_Round.pdf" download class="drawer-btn-secondary">Tải Pitch Deck Bản Đầy Đủ</a>
+    </div>
+
+    <div class="drawer-footer-note">
+      <small>Mục tiêu: $500,000 USD &bull; Định giá trần: $5,000,000 USD</small>
+    </div>
+  </aside>
+
+  <!-- Lớp phủ mờ (Backdrop overlay) khi mở Drawer: Bấm vào bất kỳ đâu bên ngoài để đóng -->
+  <label for="menu-toggle" class="drawer-backdrop" aria-hidden="true"></label>
+
+  <!-- 
+    ===========================================================================
+    THẺ: <main>
+    - Vai trò ngữ nghĩa HTML5: Đại diện cho vùng nội dung chính, độc nhất và quan trọng nhất 
+      của tài liệu; không bao gồm các nội dung lặp lại giữa các trang như header hay footer. 
+      Mỗi tài liệu HTML5 hợp lệ chỉ được phép có duy nhất một thẻ <main> hiển thị.
+    - Ý nghĩa đối với trang gọi vốn: Bao trọn toàn bộ bản cáo bạch đầu tư (Investment Pitch), 
+      tập trung 100% sự chú ý của nhà đầu tư vào các giá trị cốt lõi, khả năng mở rộng quy mô, 
+      chỉ số công nghệ và kế hoạch tài chính của dự án.
+    ===========================================================================
+  -->
+  <main>
+
+    <!-- 
+      =========================================================================
+      SECTION 1: TỔNG QUAN, SỨ MỆNH & VẤN ĐỀ THỰC TẾ (HERO SECTION)
+      - Vai trò ngữ nghĩa HTML5: Thẻ <section> xác định một khu vực chuyên đề độc lập 
+        trong tài liệu, thường đi kèm với một tiêu đề (Heading).
+      - Ý nghĩa đối với trang gọi vốn: Đặt nền tảng cho luận điểm đầu tư bằng cách nêu rõ 
+        Slogan, Sứ mệnh cao cả, Nỗi đau lớn của thị trường (Pain Points) và các số liệu 
+        lôi cuốn ban đầu (Traction) để giữ chân nhà đầu tư tiếp tục đọc.
+      =========================================================================
+    -->
+    <section id="overview" aria-labelledby="heading-overview">
+      <header>
+        <h1 id="heading-overview">Suiko AI: Kiến tạo Trí tuệ Nhân tạo Đa phương thức Tối ưu cho Các Nền Kinh tế Mới nổi</h1>
+        <p><strong>Slogan:</strong> <em>"Dân chủ hóa Trí tuệ Nhân tạo &mdash; Hiệu năng Đỉnh cao trên Hạ tầng Tiết kiệm."</em></p>
+      </header>
+
+      <!-- 
+        =======================================================================
+        KHỐI SONG SONG: SỨ MỆNH DỰ ÁN (1) VÀ VẤN ĐỀ THỰC TẾ (2)
+        - Bố cục 2 cột song song (Side-by-side Grid), kéo giãn bằng chiều cao nhau.
+        - Toàn bộ văn bản và danh sách được canh đều hai bên (Text-align Justified) 
+          tạo sự trang trọng, cân xứng và tính chuyên nghiệp cao độ cho bản cáo bạch.
+        =======================================================================
+      -->
+      <div class="mission-problem-parallel">
+        <!-- 
+          =====================================================================
+          THẺ: <article> (Tiểu mục Sứ mệnh & Bối cảnh dự án)
+          - Vai trò ngữ nghĩa HTML5: Đại diện cho một khối nội dung độc lập, tự trọn vẹn.
+          - Ý nghĩa đối với trang gọi vốn: Phác họa rõ nét Tầm nhìn (Vision) và Sứ mệnh (Mission).
+          =====================================================================
+        -->
+        <article aria-labelledby="heading-mission" class="col-mission">
+          <h2 id="heading-mission">1. Sứ mệnh Dự án &amp; Bối cảnh Thị trường Mục tiêu</h2>
+          <p>
+            Trong khi các mô hình trí tuệ nhân tạo lớn của phương Tây (như GPT-4, Claude 3.5 hay Gemini) liên tục chạy đua về quy mô tham số nghìn tỷ, chi phí tính toán và yêu cầu phần cứng cực lớn đã tạo ra một <strong>khoảng cách số khổng lồ</strong> đối với các thị trường mới nổi (Emerging Markets) &mdash; nơi sinh sống của hơn 4 tỷ dân tại Đông Nam Á, Nam Á, Châu Phi và Mỹ Latinh.
+          </p>
+          <p>
+            <strong>Sứ mệnh của Suiko AI</strong> là phá vỡ thế độc quyền công nghệ bằng việc xây dựng một mô hình nền tảng đa phương thức (Multimodal Foundation Model) mã nguồn mở, có khả năng xử lý mượt mà văn bản, hình ảnh, tài liệu và giọng nói bản địa, nhưng được tinh chỉnh để chạy hiệu quả trên các cụm GPU giá rẻ hoặc thiết bị máy trạm phổ thông ngay tại chỗ (On-premises).
+          </p>
+        </article>
+
+        <!-- 
+          =====================================================================
+          THẺ: <article> (Vấn đề thực tế mà Suiko AI giải quyết)
+          - Vai trò ngữ nghĩa HTML5: Đóng gói toàn bộ phân tích về vấn đề thị trường (Problem Statement).
+          - Ý nghĩa đối với trang gọi vốn: Trả lời câu hỏi quan trọng số 1 của quỹ đầu tư: "Vấn đề bạn đang giải quyết có thực sự nhức nhối không?".
+          =====================================================================
+        -->
+        <article aria-labelledby="heading-problem-solution" class="col-problem">
+          <h2 id="heading-problem-solution">2. Vấn đề Thực tế &amp; Lời giải Đột phá từ Suiko AI</h2>
+          
+          <h3>A. Nỗi đau Lớn của Doanh nghiệp tại Thị trường Mới nổi (The Problem)</h3>
+          <ul>
+            <li>
+              <strong>Chi phí API và Suy luận (Inference Cost) quá cao:</strong> Việc chi trả tiền USD theo số lượng token cho các API nước ngoài bào mòn nghiêm trọng biên lợi nhuận của các doanh nghiệp vừa và nhỏ (SMEs) và các công ty khởi nghiệp địa phương.
+            </li>
+            <li>
+              <strong>Rào cản Hạ tầng Phần cứng:</strong> Các doanh nghiệp và tổ chức công tại khu vực này không có ngân sách hàng chục triệu USD để đầu tư cụm siêu máy chủ GPU NVIDIA H100 hay B200 chuyên dụng.
+            </li>
+            <li>
+              <strong>Bất bình đẳng Ngôn ngữ &amp; Hiểu biết Văn hóa:</strong> Các mô hình toàn cầu thường dịch máy một cách thô ráp, thiếu hiểu biết sâu sắc về ngữ cảnh địa phương, phương ngữ, hệ thống văn bản hành chính và dữ liệu đa ngữ hỗn hợp (như tiếng Việt, Bahasa Indonesia, Tagalog, Thái Lan).
+            </li>
+            <li>
+              <strong>Nguy cơ Rò rỉ Dữ liệu &amp; Chủ quyền Số:</strong> Việc gửi dữ liệu nhạy cảm ra máy chủ đám mây đặt ngoài lãnh thổ vi phạm các quy định bảo vệ dữ liệu cá nhân nghiêm ngặt đang được áp dụng tại các quốc gia Đông Nam Á.
+            </li>
+          </ul>
+
+          <h3>B. Giải pháp Toàn diện từ Suiko AI (The Solution)</h3>
+          <ul>
+            <li>
+              <strong>Mô hình Nền tảng Đa phương thức Siêu Tối ưu:</strong> Kết hợp kiến trúc Mixture-of-Experts (MoE) thưa thớt với dung lượng kích hoạt chỉ từ 3B đến 8B tham số hiệu dụng, cho phép suy luận tốc độ cao trên phần cứng thương mại (Consumer GPUs như RTX 3090/4090).
+            </li>
+            <li>
+              <strong>Tập Dữ liệu Đa ngữ Bản địa Sâu sắc:</strong> Được tiền huấn luyện (Pre-trained) từ đầu trên hơn 2.500 tỷ token dữ liệu bản địa chọn lọc, hiểu sâu sắc văn bản quy phạm pháp luật, văn hóa giao tiếp và sắc thái ngữ âm địa phương.
+            </li>
+            <li>
+              <strong>Mã nguồn Mở &amp; Triển khai Nội bộ (Air-gapped On-premise):</strong> Giúp các tổ chức tài chính, y tế và chính quyền làm chủ hoàn toàn dữ liệu với chi phí bản quyền bằng 0.
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- 
+        =======================================================================
+        THẺ: <aside> (Khối thông tin bên lề: Chỉ số Traction / Sức hút ban đầu)
+        - Vai trò ngữ nghĩa HTML5: Đại diện cho phần nội dung liên quan gián tiếp hoặc 
+          bổ trợ cho luồng nội dung chính xung quanh (như thanh bên, khung highlight, callout).
+        - Ý nghĩa đối với trang gọi vốn: Thu hút ánh mắt nhà đầu tư vào các "con số biết nói" 
+          (Early Traction & Validation) &mdash; minh chứng thực tế cho thấy sản phẩm không chỉ 
+          nằm trên giấy mà đã có sự đón nhận mạnh mẽ từ cộng đồng nghiên cứu và thị trường.
+        =======================================================================
+      -->
+      <aside aria-labelledby="heading-traction">
+        <header>
+          <h3 id="heading-traction">Điểm Nhấn Sức Hút Ban Đầu (Early Traction Highlights)</h3>
+          <p><small>*Số liệu kiểm thử độc lập cập nhật tính đến Quý 1 năm 2025</small></p>
+        </header>
+        <ul>
+          <li><strong>4.8x</strong> &mdash; Tốc độ suy luận (Tokens/s) nhanh hơn trên card đồ họa phổ thông RTX 4090 so với LLaMA 3.1 8B.</li>
+          <li><strong>72%</strong> &mdash; Giảm thiểu tổng chi phí điện toán cần thiết cho quá trình tiền huấn luyện nhờ thuật toán lọc dữ liệu tổng hợp (Data Pruning).</li>
+          <li><strong>15.000+</strong> &mdash; Kỹ sư trí tuệ nhân tạo và chuyên gia dữ liệu đã đăng ký danh sách chờ (Waitlist) nhận quyền truy cập sớm bản Alpha.</li>
+          <li><strong>12 Ngôn ngữ</strong> &mdash; Đã hoàn thành quá trình làm sạch dữ liệu và thử nghiệm token hóa cho các ngôn ngữ chính vùng Đông Nam Á và Nam Á.</li>
+          <li><strong>3 Bản ghi nhớ Hợp tác (MoU)</strong> &mdash; Đã ký kết thử nghiệm tích hợp với 2 ngân hàng thương mại cổ phần và 1 tập đoàn viễn thông khu vực.</li>
+        </ul>
+      </aside>
+      <hr>
+    </section>
+
+    <!-- 
+      =========================================================================
+      SECTION 2: CÔNG NGHỆ CỐT LÕI & ĐIỂM ĐỘT PHÁ (TECHNOLOGY & BENCHMARKS)
+      - Vai trò ngữ nghĩa HTML5: Phân chia chuyên đề công nghệ, kiến trúc thuật toán 
+        và bằng chứng kỹ thuật (Proof of Concept / Technical Moat).
+      - Ý nghĩa đối với trang gọi vốn: Chứng minh "Hào lũy công nghệ" (Defensible Technical Moat). 
+        Nhà đầu tư quỹ công nghệ (Tech VCs) cần xem xét chi tiết kiến trúc, tính khả thi 
+        kỹ thuật và bằng chứng so sánh benchmark để thẩm định độ tin cậy của đội ngũ.
+      =========================================================================
+    -->
+    <section id="technology" aria-labelledby="heading-tech">
+      <header>
+        <h2 id="heading-tech">Công nghệ Đột phá, Hiệu quả Tính toán &amp; Benchmark Đo kiểm</h2>
+        <p>Kiến trúc tối tân được thiết kế từ gốc để xóa bỏ rào cản tài nguyên phần cứng.</p>
+      </header>
+
+      <!-- 
+        =======================================================================
+        THẺ: <article> (Chi tiết kiến trúc mô hình Suiko AI)
+        - Vai trò ngữ nghĩa HTML5: Đóng gói báo cáo chi tiết về thiết kế kiến trúc phần mềm/mô hình.
+        - Ý nghĩa đối với trang gọi vốn: Làm rõ các sáng chế độc quyền và cải tiến thuật toán, 
+          trả lời câu hỏi: "Tại sao giải pháp này lại chạy nhanh hơn và rẻ hơn các đối thủ khổng lồ?".
+        =======================================================================
+      -->
+      <article aria-labelledby="heading-architecture">
+        <h3 id="heading-architecture">1. Kiến trúc Mô hình Đa phương thức Đột phá: Suiko-SparseMoE</h3>
+        <p>
+          Suiko AI áp dụng kiến trúc <strong>Sparse Mixture-of-Experts (MoE)</strong> kết hợp bộ điều hợp đa phương thức nhẹ (Lightweight Cross-Attention Multimodal Adapters). Thay vì kích hoạt toàn bộ mạng nơ-ron cho mỗi lượt xử lý dữ liệu:
+        </p>
+        <ul>
+          <li>
+            <strong>Cơ chế Định tuyến Thưa (Dynamic Gating Mechanism):</strong> Với tổng số 32 tỷ tham số, mỗi token được xử lý chỉ kích hoạt đúng 2 chuyên gia (Experts) có tổng quy mô tương đương 4,2 tỷ tham số hoạt động. Điều này giữ nguyên dung lượng tri thức phong phú nhưng cắt giảm hơn 75% khối lượng phép tính FLOPs trên mỗi token.
+          </li>
+          <li>
+            <strong>Bộ mã hóa Đa phương thức Hợp nhất (Unified Vision-Speech-Text Encoder):</strong> Cho phép mô hình thấu hiểu đồng thời tài liệu dạng ảnh (hóa đơn, chứng từ, bảng biểu văn phòng) và các file âm thanh giọng nói có tạp âm môi trường mà không cần ghép nối rời rạc nhiều mô hình đơn nhiệm.
+          </li>
+          <li>
+            <strong>Chuẩn lượng tử hóa 4-bit/8-bit Tích hợp Sâu (Native Quantization-Aware Training):</strong> Mô hình được huấn luyện có nhận thức lượng tử hóa ngay từ giai đoạn pre-training, đảm bảo không suy giảm độ chính xác khi nén về định dạng AWQ/GPTQ 4-bit, dễ dàng chạy gọn trong 12GB đến 16GB VRAM.
+          </li>
+        </ul>
+      </article>
+
+      <!-- 
+        =======================================================================
+        THẺ: <article> (Hiệu quả chi phí tính toán & Bảo mật dữ liệu)
+        - Vai trò ngữ nghĩa HTML5: Chứa đựng bài phân tích chuyên sâu về tối ưu hạ tầng và an toàn thông tin.
+        - Ý nghĩa đối với trang gọi vốn: Nhấn mạnh vào hiệu quả sử dụng vốn (Capital Efficiency) - 
+          chứng minh với nhà đầu tư rằng dự án không "đốt tiền" vô ích vào GPU đắt đỏ, 
+          đồng thời đáp ứng các tiêu chuẩn khắt khe của khách hàng doanh nghiệp B2B Enterprise.
+        =======================================================================
+      -->
+      <article aria-labelledby="heading-efficiency-privacy">
+        <h3 id="heading-efficiency-privacy">2. Hiệu quả Chi phí Huấn luyện &amp; Cơ chế Bảo mật Cấp Doanh nghiệp</h3>
+        
+        <h4>A. Hiệu quả Chi phí Huấn luyện (Compute Efficiency &amp; Green AI)</h4>
+        <p>
+          Nhờ ứng dụng cơ chế <em>SuikoAttention</em> cải tiến từ FlashAttention-3 và kỹ thuật lọc dữ liệu tổng hợp (Curated Synthetic Data Pruning), Suiko AI đạt hiệu suất sử dụng GPU (MFU - Model FLOPs Utilization) lên tới <strong>58.4%</strong> trên các cụm GPU đám mây thông thường, rút ngắn thời gian hội tụ của mô hình xuống gần một nửa so với phương pháp huấn luyện truyền thống.
+        </p>
+
+        <h4>B. Bảo mật Dữ liệu &amp; Chủ quyền Dữ liệu Quốc gia (Data Privacy &amp; AI Sovereignty)</h4>
+        <p>
+          Suiko AI cam kết tôn trọng tuyệt đối quyền riêng tư và tuân thủ tiêu chuẩn bảo vệ dữ liệu:
+        </p>
+        <ul>
+          <li><strong>Triển khai Cô lập Hoàn toàn (Air-Gapped Deployment):</strong> Mô hình có thể cài đặt trực tiếp bên trong mạng nội bộ của ngân hàng, bệnh viện hoặc cơ quan nhà nước, không cần kết nối Internet ra bên ngoài.</li>
+          <li><strong>Kiến trúc Học liên kết (Federated Learning Ready):</strong> Cho phép nhiều chi nhánh hoặc tổ chức cùng huấn luyện mô hình chung mà không cần chia sẻ dữ liệu gốc cho nhau.</li>
+          <li><strong>Tuân thủ Pháp lý Toàn diện:</strong> Đáp ứng đầy đủ Nghị định 13/2023/NĐ-CP về Bảo vệ dữ liệu cá nhân tại Việt Nam, Luật An ninh mạng, cũng như chuẩn mực GDPR quốc tế.</li>
+        </ul>
+      </article>
+
+      <!-- 
+        =======================================================================
+        THẺ: <figure>
+        - Vai trò ngữ nghĩa HTML5: Bao bọc một khối nội dung minh họa trực quan độc lập 
+          như bảng biểu, đồ thị, sơ đồ hay hình ảnh tham chiếu, thường gắn liền với 
+          thẻ chú thích <figcaption>.
+        - Ý nghĩa đối với trang gọi vốn: Trình bày dữ liệu benchmark kỹ thuật một cách khoa học, 
+          minh bạch, có thể được trích dẫn trực tiếp vào các biên bản thẩm định kỹ thuật (Technical Due Diligence).
+        =======================================================================
+      -->
+      <figure aria-labelledby="caption-benchmark">
+        <!-- 
+          =====================================================================
+          THẺ: <table>
+          - Vai trò ngữ nghĩa HTML5: Trình bày dữ liệu dạng bảng quan hệ 2 chiều (hàng và cột).
+          - Ý nghĩa đối với trang gọi vốn: Bảng so sánh là công cụ thuyết phục mạnh nhất 
+            để so sánh tương quan giữa Suiko AI và các đối thủ sừng sỏ trên thị trường 
+            (LLaMA 3.1, Mistral, GPT-4o-mini) về hiệu năng kỹ thuật và chi phí vận hành.
+          =====================================================================
+        -->
+        <table border="1">
+          <!-- 
+            ===================================================================
+            THẺ: <thead>
+            - Vai trò ngữ nghĩa HTML5: Nhóm các hàng tiêu đề định nghĩa tên các cột trong bảng dữ liệu.
+            - Ý nghĩa đối với trang gọi vốn: Giúp nhà đầu tư nhanh chóng nhận diện các tiêu chí đánh giá.
+            ===================================================================
+          -->
+          <thead>
+            <tr>
+              <th scope="col">Tiêu chí So sánh</th>
+              <th scope="col">Suiko AI (Bản đề xuất)</th>
+              <th scope="col">Meta LLaMA 3.1 (8B)</th>
+              <th scope="col">Mistral NeMo (12B)</th>
+              <th scope="col">OpenAI GPT-4o-mini</th>
+            </tr>
+          </thead>
+          <!-- 
+            ===================================================================
+            THẺ: <tbody>
+            - Vai trò ngữ nghĩa HTML5: Chứa toàn bộ các hàng dữ liệu chính của bảng.
+            - Ý nghĩa đối với trang gọi vốn: Cung cấp bằng chứng thực tế, minh chứng cho 
+              tuyên bố "nhanh hơn, rẻ hơn, hiểu văn hóa tốt hơn".
+            ===================================================================
+          -->
+          <tbody>
+            <tr>
+              <th scope="row">Kiến trúc Cốt lõi</th>
+              <td>Sparse MoE (Kích hoạt 4.2B / Tổng 32B)</td>
+              <td>Dense Transformer (8B)</td>
+              <td>Dense Transformer (12.2B)</td>
+              <td>Mô hình Đóng (Không công bố)</td>
+            </tr>
+            <tr>
+              <th scope="row">Hỗ trợ Đa phương thức</th>
+              <td>Có (Văn bản + Ảnh + Âm thanh bản địa)</td>
+              <td>Chỉ Văn bản (Bản 8B)</td>
+              <td>Chỉ Văn bản</td>
+              <td>Có (Văn bản + Ảnh)</td>
+            </tr>
+            <tr>
+              <th scope="row">SEA-MMLU (Đa ngữ Đông Nam Á)</th>
+              <td><strong>74.6%</strong> (Đo lường nội bộ)</td>
+              <td>61.2%</td>
+              <td>59.8%</td>
+              <td>72.5%</td>
+            </tr>
+            <tr>
+              <th scope="row">Tốc độ Suy luận (Tokens/s trên RTX 4090)</th>
+              <td><strong>118 tokens/giây</strong></td>
+              <td>42 tokens/giây</td>
+              <td>29 tokens/giây</td>
+              <td>Phụ thuộc Cloud API &amp; Băng thông</td>
+            </tr>
+            <tr>
+              <th scope="row">Yêu cầu VRAM tối thiểu (Inference 4-bit)</th>
+              <td><strong>8 GB VRAM</strong></td>
+              <td>10 GB VRAM</td>
+              <td>14 GB VRAM</td>
+              <td>Không hỗ trợ chạy On-Premise</td>
+            </tr>
+            <tr>
+              <th scope="row">Ước tính Chi phí / 1M Tokens (USD)</th>
+              <td><strong>$0.025</strong> (Triển khai On-Premise)</td>
+              <td>$0.080 (Cloud Hosting)</td>
+              <td>$0.120 (Cloud Hosting)</td>
+              <td>$0.150 (Phí API Cloud)</td>
+            </tr>
+            <tr>
+              <th scope="row">Giấy phép Sử dụng (License)</th>
+              <td>Apache 2.0 (Mã nguồn Mở Toàn phần)</td>
+              <td>LLaMA Community License (Giới hạn)</td>
+              <td>Apache 2.0</td>
+              <td>Độc quyền Đóng (Proprietary)</td>
+            </tr>
+          </tbody>
+          <!-- 
+            ===================================================================
+            THẺ: <tfoot>
+            - Vai trò ngữ nghĩa HTML5: Chứa phần tổng kết hoặc ghi chú chân trang của bảng dữ liệu.
+            - Ý nghĩa đối với trang gọi vốn: Tóm lược nhận định phân tích then chốt 
+              rút ra từ số liệu bảng so sánh.
+            ===================================================================
+          -->
+          <tfoot>
+            <tr>
+              <td colspan="5">
+                <em>Kết luận Benchmark: Suiko AI vượt trội 180% về tốc độ suy luận cục bộ, giảm 83% chi phí vận hành trên 1 triệu token và dẫn đầu về độ chính xác ngữ cảnh tiếng bản địa Đông Nam Á so với các mô hình cùng phân khúc.</em>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <!-- 
+          =====================================================================
+          THẺ: <figcaption>
+          - Vai trò ngữ nghĩa HTML5: Đặt tiêu đề hoặc chú giải chính thức cho khối phần tử <figure>.
+          - Ý nghĩa đối với trang gọi vốn: Xác thực nguồn gốc dữ liệu đo kiểm và điều kiện thử nghiệm, 
+            gia tăng tính minh bạch và uy tín trong mắt các kiểm toán viên công nghệ của quỹ.
+          =====================================================================
+        -->
+        <figcaption id="caption-benchmark">
+          <strong>Bảng 1:</strong> Kết quả đo kiểm Benchmark hiệu năng kỹ thuật và chi phí vận hành giữa Suiko AI và các mô hình nền tảng phổ biến hiện nay (Môi trường thử nghiệm: 1x NVIDIA GeForce RTX 4090 24GB, CUDA 12.4, Batch size = 1, Sequence length = 2048 tokens).
+        </figcaption>
+      </figure>
+      <hr>
+    </section>
+
+    <!-- 
+      =========================================================================
+      SECTION 3: MỤC TIÊU KÊU GỌI VỐN & PHÂN BỔ NGÂN SÁCH (FUNDRAISING & BUDGET)
+      - Vai trò ngữ nghĩa HTML5: Khu vực chuyên biệt chứa đựng kế hoạch tài chính, 
+        thông tin vòng gọi vốn và cơ cấu phân bổ vốn đầu tư.
+      - Ý nghĩa đối với trang gọi vốn: Đây là "Trái tim" của một bản chào đầu tư (Pitching Document). 
+        Nhà đầu tư sẽ xem xét chính xác số tiền cần gọi, cấu trúc thỏa thuận đầu tư và 
+        chi tiết từng đồng vốn sẽ được chi tiêu ra sao để tạo ra mức tăng trưởng tối đa.
+      =========================================================================
+    -->
+    <section id="fundraising" aria-labelledby="heading-fundraising">
+      <header>
+        <h2 id="heading-fundraising">Kế hoạch Gọi vốn Vòng Hạt giống (Seed Round) &amp; Phân bổ Ngân sách</h2>
+        <p>Minh bạch tài chính, tối ưu hóa nguồn lực cho chu kỳ tăng trưởng bứt phá 18 tháng.</p>
+      </header>
+
+      <!-- 
+        =======================================================================
+        THẺ: <article> (Thông tin tóm tắt điều khoản vòng gọi vốn - Deal Terms)
+        - Vai trò ngữ nghĩa HTML5: Đại diện cho văn bản tóm tắt điều khoản tài chính độc lập.
+        - Ý nghĩa đối với trang gọi vốn: Nêu bật các thông số tài chính pháp lý thiết yếu 
+          (Target, Instrument, Valuation Cap, Runway) giúp nhà đầu tư đưa ra quyết định nhanh chóng.
+        =======================================================================
+      -->
+      <article aria-labelledby="heading-terms">
+        <h3 id="heading-terms">1. Tóm tắt Điều khoản Vòng Gọi vốn (Key Investment Terms)</h3>
+        <ul>
+          <li><strong>Mục tiêu Kêu gọi Vốn (Fundraising Target):</strong> <strong>500.000 USD</strong> (Năm trăm nghìn Đô la Mỹ).</li>
+          <li><strong>Công cụ Tài chính (Investment Instrument):</strong> Thỏa thuận Đơn giản cho Cổ phần Tương lai (SAFE &mdash; Simple Agreement for Future Equity) theo chuẩn Y Combinator (Post-money SAFE) có điều khoản MFN (Most Favored Nation).</li>
+          <li><strong>Mức Định giá Trần (Valuation Cap):</strong> <strong>5.000.000 USD</strong> (Năm triệu Đô la Mỹ).</li>
+          <li><strong>Mức Chiết khấu Vòng sau (Discount Rate):</strong> 20% khi chuyển đổi tại vòng Series A.</li>
+          <li><strong>Mức Đầu tư Tối thiểu (Minimum Ticket Size):</strong> 25.000 USD đối với Nhà đầu tư Thiên thần (Angel Investors) và 100.000 USD đối với Quỹ Đầu tư Mạo hiểm (Venture Capital Funds).</li>
+          <li><strong>Thời gian Duy trì Hoạt động Dự kiến (Runway):</strong> 18 tháng (Đủ nguồn lực để đạt cột mốc Doanh thu định kỳ hàng năm ARR $500K và sẵn sàng cho vòng Series A).</li>
+        </ul>
+      </article>
+
+      <!-- 
+        =======================================================================
+        THANH TIẾN ĐỘ KÊU GỌI VỐN - ỐNG NGHIỆM SINH HÓA (BIOCHEMICAL TEST TUBE):
+        - Mô phỏng ống nghiệm công nghệ cao với viền kính bóng, nền tối mờ.
+        - Dải chất lỏng màu xanh lá neon (#39FF14) phát quang mạnh mẽ (Glow Box-Shadow).
+        - Hiệu ứng bong bóng phòng lab (Laboratory Bubbles) chuyển động bay lên liên tục bằng Pure CSS.
+        =======================================================================
+      -->
+      <div class="funding-tracker" aria-label="Tiến độ kêu gọi vốn thực tế vòng Seed">
+        <div class="tracker-header">
+          <span class="tracker-title">Tiến Độ Kêu Gọi Vốn Trực Tiếp (Live Seed Funding Tracker)</span>
+          <span class="tracker-metrics">390.000 / 500.000 USD (78%)</span>
+        </div>
+        <div class="test-tube" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">
+          <div class="tube-liquid" style="width: 78%;"></div>
+        </div>
+        <div class="tracker-footer">
+          <span>Đã xác nhận: 14 Nhà đầu tư Thiên thần &amp; 2 Quỹ Đầu tư Mạo hiểm</span>
+          <span>Thời hạn còn lại của vòng: 42 Ngày</span>
+        </div>
+      </div>
+
+      <!-- 
+        =======================================================================
+        THẺ: <figure> & <table> (Bảng phân bổ chi tiết ngân sách 500.000 USD)
+        - Vai trò ngữ nghĩa HTML5: Đóng gói bảng biểu phân bổ vốn có tiêu đề và ghi chú đi kèm.
+        - Ý nghĩa đối với trang gọi vốn: Minh chứng năng lực quản trị tài chính chuyên nghiệp. 
+          Không có nhà đầu tư nào chấp nhận rót vốn nếu không thấy bảng phân bổ chi tiết 
+          từng hạng mục chi phí rõ ràng.
+        =======================================================================
+      -->
+      <figure aria-labelledby="caption-budget">
+        <table border="1">
+          <thead>
+            <tr>
+              <th scope="col">Hạng mục Phân bổ Vốn</th>
+              <th scope="col">Tỷ lệ (%)</th>
+              <th scope="col">Số tiền (USD)</th>
+              <th scope="col">Kế hoạch Sử dụng Chi tiết &amp; Mục tiêu Cụ thể</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1. Nghiên cứu &amp; Phát triển (R&amp;D) &amp; Làm sạch Dữ liệu</th>
+              <td>40%</td>
+              <td>200.000 USD</td>
+              <td>
+                Xây dựng và làm sạch tập dữ liệu bản địa 2.500 tỷ token chất lượng cao; mua bản quyền tài liệu chuyên ngành; phát triển bộ công cụ lượng tử hóa độc quyền và tối ưu kiến trúc Sparse MoE.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2. Hạ tầng Điện toán GPU (Compute &amp; Cloud Cluster)</th>
+              <td>30%</td>
+              <td>150.000 USD</td>
+              <td>
+                Hợp đồng thuê linh hoạt cụm máy chủ điện toán đám mây (GPU Cloud Pods: 32x NVIDIA H100 SXM5 / A100 80GB) phục vụ các đợt pre-training lớn và hàng nghìn chu kỳ kiểm thử fine-tuning liên tục.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3. Chiêu mộ Nhân sự Kỹ thuật Cốt lõi (Core AI Talent)</th>
+              <td>20%</td>
+              <td>100.000 USD</td>
+              <td>
+                Đảm bảo quỹ lương và phúc lợi cạnh tranh trong 18 tháng để tuyển dụng thêm 2 Kỹ sư Nghiên cứu Học sâu (Deep Learning Research Scientists) và 2 Kỹ sư MLOps &amp; Inference Optimization cấp cao.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">4. Pháp lý, Sở hữu Trí tuệ, Kiểm toán &amp; Vận hành</th>
+              <td>10%</td>
+              <td>50.000 USD</td>
+              <td>
+                Đăng ký bản quyền sở hữu trí tuệ quốc tế, chi phí tư vấn pháp lý thành lập công ty đại diện tại Singapore/Việt Nam, kiểm toán an ninh mạng độc lập và chi phí hành chính văn phòng.
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">TỔNG CỘNG NGÂN SÁCH</th>
+              <td><strong>100%</strong></td>
+              <td><strong>500.000 USD</strong></td>
+              <td><strong>Cam kết duy trì hoạt động R&amp;D và tăng trưởng kinh doanh liên tục trong 18 tháng</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+        <figcaption id="caption-budget">
+          <strong>Bảng 2:</strong> Bảng phân bổ chi tiết kế hoạch sử dụng nguồn vốn 500.000 USD vòng hạt giống của Suiko AI trong giai đoạn 2025 - 2026.
+        </figcaption>
+      </figure>
+
+      <!-- 
+        =======================================================================
+        THẺ: <aside> (Quyền lợi và Đãi ngộ Dành riêng cho Nhà đầu tư)
+        - Vai trò ngữ nghĩa HTML5: Khối thông tin bổ trợ quan trọng đi kèm với đề xuất đầu tư.
+        - Ý nghĩa đối với trang gọi vốn: Tạo động lực (Incentive) bổ sung, cung cấp các giá trị gia tăng 
+          (Investor Perks) giúp thúc đẩy các quỹ và nhà đầu tư thiên thần nhanh chóng giải ngân.
+        =======================================================================
+      -->
+      <aside aria-labelledby="heading-investor-perks">
+        <header>
+          <h3 id="heading-investor-perks">Quyền lợi Dành riêng cho Nhà đầu tư Đồng hành Sớm (Investor Perks)</h3>
+        </header>
+        <ul>
+          <li><strong>Quyền Ưu tiên Góp vốn Vòng Tiếp theo (Pro-rata Rights):</strong> Được bảo lưu quyền tham gia giữ nguyên tỷ lệ sở hữu tại vòng Series A trị giá 3M - 5M USD dự kiến mở vào cuối năm 2026.</li>
+          <li><strong>Báo cáo Minh bạch Hàng tháng:</strong> Nhận bản tin tóm tắt chỉ số tài chính (Burn Rate, Runway), tăng trưởng kỹ thuật (GitHub Stars, Model Downloads) và tiến độ kinh doanh vào ngày mùng 5 hàng tháng.</li>
+          <li><strong>Ghế Quan sát viên Hội đồng (Board Observer Seat):</strong> Dành riêng cho nhà đầu tư dẫn dắt (Lead Investor) có mức rót vốn từ 150.000 USD trở lên.</li>
+          <li><strong>Gói Doanh nghiệp Vĩnh viễn (Enterprise API Tier 1):</strong> Miễn phí bản quyền tích hợp mô hình Suiko AI cho hệ sinh thái các công ty thuộc danh mục đầu tư (Portfolio Companies) của quỹ.</li>
+        </ul>
+      </aside>
+      <hr>
+    </section>
+
+    <!-- 
+      =========================================================================
+      SECTION 4: LỘ TRÌNH PHÁT TRIỂN CHIẾN LƯỢC (ROADMAP)
+      - Vai trò ngữ nghĩa HTML5: Khu vực mô tả tiến trình phát triển theo chuỗi thời gian.
+      - Ý nghĩa đối với trang gọi vốn: Thể hiện tầm nhìn chiến lược, khả năng thực thi (Execution Capability) 
+        và sự kỷ luật của ban lãnh đạo. Nhà đầu tư nhìn vào roadmap để đo lường tiến độ giải ngân 
+        theo từng cột mốc (Milestones-based Funding).
+      =========================================================================
+    -->
+    <section id="roadmap" aria-labelledby="heading-roadmap">
+      <header>
+        <h2 id="heading-roadmap">Lộ trình Phát triển Chiến lược (Roadmap 2025 &mdash; 2026)</h2>
+        <p>Cam kết thực thi kỷ luật từ tiền huấn luyện phòng lab đến quy mô thương mại hóa toàn cầu.</p>
+      </header>
+
+      <!-- 
+        =======================================================================
+        THẺ: <ol>
+        - Vai trò ngữ nghĩa HTML5: Danh sách có thứ tự (Ordered List), biểu thị mối quan hệ 
+          trước - sau bắt buộc giữa các bước hoặc tiến trình thời gian.
+        - Ý nghĩa đối với trang gọi vốn: Một lộ trình sản phẩm công nghệ AI luôn có tính tuần tự: 
+          Thu thập dữ liệu -> Pre-training -> Thử nghiệm Alpha -> Thương mại hóa -> Mở rộng hệ sinh thái. 
+          Dùng thẻ <ol> chuẩn hóa cấu trúc thông tin một cách logic và khoa học nhất.
+        =======================================================================
+      -->
+      <ol>
+        <!-- 
+          =====================================================================
+          THẺ: <li> & <article> (Cột mốc Roadmap Giai đoạn 1)
+          - Vai trò ngữ nghĩa HTML5: <li> định vị phần tử trong danh sách; <article> bên trong 
+            tạo nên một khối tóm tắt đầy đủ về một sự kiện/cột mốc độc lập.
+          - Ý nghĩa đối với trang gọi vốn: Định nghĩa rõ mục tiêu kỹ thuật cần đạt trong nửa đầu năm 2025.
+          =====================================================================
+        -->
+        <li>
+          <article aria-labelledby="milestone-phase-1">
+            <header>
+              <h3 id="milestone-phase-1">Giai đoạn 1: Chuẩn bị Ngữ liệu &amp; Tiền Huấn luyện (Pre-training Foundation)</h3>
+              <!-- 
+                ===============================================================
+                THẺ: <time>
+                - Vai trò ngữ nghĩa HTML5: Biểu diễn chính xác thời gian, ngày tháng theo định dạng 
+                  máy đọc được (machine-readable thông qua thuộc tính datetime).
+                - Ý nghĩa đối với trang gọi vốn: Giúp các công cụ tìm kiếm và ứng dụng theo dõi 
+                  nhận diện chính xác khung thời gian của dự án, tăng tính minh bạch về thời hạn cam kết.
+                ===============================================================
+              -->
+              <p>Thời gian: <time datetime="2025-01">Tháng 01/2025</time> &mdash; <time datetime="2025-05">Tháng 05/2025</time></p>
+            </header>
+            <p><strong>Mục tiêu cốt lõi:</strong> Hoàn tất chuẩn bị tập dữ liệu bản địa sạch và cấu hình cụm máy chủ huấn luyện phân tán.</p>
+            <ul>
+              <li>Hoàn thành việc thu thập, deduplication (khử trùng lặp) và lọc dữ liệu an toàn cho 2.500 tỷ token đa ngữ Đông Nam Á.</li>
+              <li>Triển khai kiến trúc mạng Suiko-SparseMoE trên hạ tầng PyTorch FSDP (Fully Sharded Data Parallel) và Megatron-LM.</li>
+              <li>Khởi chạy chu kỳ pre-training bản Suiko-Base-3B và kiểm tra độ ổn định của hàm mất mát (Loss convergence).</li>
+            </ul>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="milestone-phase-2">
+            <header>
+              <h3 id="milestone-phase-2">Giai đoạn 2: Phát hành Bản Alpha &amp; Đo kiểm Độc lập (Alpha Testing &amp; Benchmarking)</h3>
+              <p>Thời gian: <time datetime="2025-06">Tháng 06/2025</time> &mdash; <time datetime="2025-09">Tháng 09/2025</time></p>
+            </header>
+            <p><strong>Mục tiêu cốt lõi:</strong> Đo lường chất lượng mô hình với cộng đồng học thuật và mở thử nghiệm giới hạn.</p>
+            <ul>
+              <li>Hoàn thành huấn luyện mô hình Suiko-8B (Sparse MoE kích hoạt 4.2B tham số).</li>
+              <li>Công bố Technical Report chi tiết kèm bộ dữ liệu kiểm thử SEA-MMLU trên nền tảng ArXiv và GitHub.</li>
+              <li>Cung cấp cổng API Alpha thử nghiệm nội bộ cho 50 đối tác chiến lược và các trường đại học công nghệ hàng đầu khu vực.</li>
+              <li>Hoàn thiện quy trình lượng tử hóa 4-bit (AWQ) cho phép chạy trên card đồ họa phổ thông 8GB - 12GB VRAM.</li>
+            </ul>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="milestone-phase-3">
+            <header>
+              <h3 id="milestone-phase-3">Giai đoạn 3: Triển khai Thương mại hóa &amp; Gói Suiko Enterprise (Commercialization)</h3>
+              <p>Thời gian: <time datetime="2025-10">Tháng 10/2025</time> &mdash; <time datetime="2026-01">Tháng 01/2026</time></p>
+            </header>
+            <p><strong>Mục tiêu cốt lõi:</strong> Chuyển đổi các bản ghi nhớ hợp tác (MoU) thành hợp đồng doanh thu thương mại B2B thực tế.</p>
+            <ul>
+              <li>Chính thức ra mắt giải pháp <em>Suiko Enterprise On-Premise Box</em> dành riêng cho khối Ngân hàng, Bảo hiểm và Viễn thông.</li>
+              <li>Cung cấp bộ công cụ Fine-tuning SDK thân thiện, giúp doanh nghiệp tự huấn luyện thêm trên dữ liệu bảo mật nội bộ trong 48 giờ.</li>
+              <li>Đạt cột mốc Doanh thu định kỳ hàng tháng (MRR) mục tiêu: <strong>35.000 USD</strong> từ phí hỗ trợ kỹ thuật chuyên sâu và cấp phép doanh nghiệp.</li>
+            </ul>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="milestone-phase-4">
+            <header>
+              <h3 id="milestone-phase-4">Giai đoạn 4: Mở Mã Nguồn Toàn Diện &amp; Vòng Gọi Vốn Series A (Open Ecosystem &amp; Scale)</h3>
+              <p>Thời gian: <time datetime="2026-02">Tháng 02/2026</time> &mdash; <time datetime="2026-06">Tháng 06/2026</time></p>
+            </header>
+            <p><strong>Mục tiêu cốt lõi:</strong> Bùng nổ mạng lưới nhà phát triển toàn cầu và chuẩn bị nguồn lực cho giai đoạn mở rộng quy mô lớn.</p>
+            <ul>
+              <li>Mở toàn bộ trọng số mô hình (Model Weights) bản tiêu chuẩn dưới giấy phép Apache 2.0 trên Hugging Face Hub và GitHub.</li>
+              <li>Đạt cột mốc 500.000 lượt tải mô hình và xây dựng cộng đồng 30.000 nhà phát triển tích cực trong hệ sinh thái Suiko.</li>
+              <li>Khởi động đàm phán vòng gọi vốn Series A với mục tiêu <strong>3.000.000 USD &mdash; 5.000.000 USD</strong> để mở rộng thị trường sang Nam Á và Châu Phi.</li>
+            </ul>
+          </article>
+        </li>
+      </ol>
+      <hr>
+    </section>
+
+    <!-- 
+      =========================================================================
+      SECTION 5: ĐỘI NGŨ SÁNG LẬP & CỐ VẤN CHIẾN LƯỢC (FOUNDING TEAM & ADVISORS)
+      - Vai trò ngữ nghĩa HTML5: Chuyên đề giới thiệu nhân sự chủ chốt đứng sau dự án.
+      - Vai trò đối với trang gọi vốn: "Đầu tư vào giai đoạn sớm là đầu tư vào con người" 
+        (Bet on the Jockeys). Phần này chứng minh năng lực kỹ thuật xuất sắc, kinh nghiệm 
+        thực chiến và sự bền bỉ của các nhà sáng lập.
+      =========================================================================
+    -->
+    <section id="team" aria-labelledby="heading-team">
+      <header>
+        <h2 id="heading-team">Đội ngũ Sáng lập &amp; Ban Cố vấn Chiến lược</h2>
+        <p>Sự kết hợp giữa chuyên môn học thuật đỉnh cao và kinh nghiệm triển khai hệ thống phân tán quy mô lớn.</p>
+      </header>
+
+      <!-- 
+        =======================================================================
+        THẺ: <article> (Hồ sơ Nhà sáng lập & CEO)
+        - Vai trò ngữ nghĩa HTML5: Đại diện cho một hồ sơ tiểu sử nhân sự độc lập, đầy đủ.
+        - Ý nghĩa đối với trang gọi vốn: Giới thiệu người cầm lái dự án với các thành tích uy tín.
+        =======================================================================
+      -->
+      <article aria-labelledby="founder-ceo">
+        <h3 id="founder-ceo">TS. Nguyễn Hoàng Nam &mdash; Đồng sáng lập kiêm Giám đốc Điều hành (CEO)</h3>
+        <p><strong>Học vấn &amp; Xuất thân:</strong> Tiến sĩ Khoa học Máy tính chuyên ngành Xử lý Ngôn ngữ Tự nhiên (NLP) tại Đại học Tokyo (Nhật Bản); cựu Kỹ sư AI Cấp cao tại Viện Nghiên cứu Trí tuệ Nhân tạo Hàng đầu Khu vực.</p>
+        <p><strong>Kinh nghiệm thực tiễn:</strong> Hơn 10 năm kinh nghiệm nghiên cứu học sâu, tác giả của hơn 15 bài báo khoa học xuất bản tại các hội nghị đầu ngành (ACL, EMNLP, NeurIPS); từng lãnh đạo nhóm kỹ thuật phát triển trợ lý ảo đa ngữ đạt 5 triệu người dùng hoạt động hàng tháng.</p>
+      </article>
+
+      <!-- 
+        =======================================================================
+        THẺ: <article> (Hồ sơ Nhà sáng lập & CTO)
+        - Vai trò ngữ nghĩa HTML5: Đóng gói thông tin hồ sơ lãnh đạo công nghệ.
+        - Ý nghĩa đối với trang gọi vốn: Khẳng định năng lực bảo đảm việc thực thi kiến trúc hạ tầng và mô hình.
+        =======================================================================
+      -->
+      <article aria-labelledby="founder-cto">
+        <h3 id="founder-cto">Trần Đức Long, M.Sc. &mdash; Đồng sáng lập kiêm Giám đốc Công nghệ (CTO)</h3>
+        <p><strong>Học vấn &amp; Xuất thân:</strong> Thạc sĩ Kỹ thuật Phần mềm Phân tán tại Đại học Bách Khoa; cựu Trưởng nhóm Hạ tầng Điện toán Đám mây và Tăng tốc Phần cứng GPU tại tập đoàn công nghệ kỳ lân.</p>
+        <p><strong>Kinh nghiệm thực tiễn:</strong> Chuyên gia hàng đầu về tối ưu hóa hạt nhân CUDA/Triton và phân tán dữ liệu lớn; từng trực tiếp vận hành cụm 256x GPU A100 đạt thời gian hoạt động liên tục (uptime) 99.98% trong suốt 2 năm.</p>
+      </article>
+
+      <!-- 
+        =======================================================================
+        THẺ: <blockquote> & <cite> (Nhận xét của Cố vấn Chiến lược / Chuyên gia trong ngành)
+        - Vai trò ngữ nghĩa HTML5: <blockquote> dùng cho đoạn trích dẫn nguyên văn độc lập; 
+          <cite> dùng để xác định nguồn hoặc danh tính của tác giả trích dẫn đó.
+        - Ý nghĩa đối với trang gọi vốn: Tăng cường bằng chứng xã hội (Social Proof) và uy tín ngoại vi, 
+          chứng tỏ dự án nhận được sự hậu thuẫn và đánh giá tích cực từ các tên tuổi lớn trong giới đầu tư công nghệ.
+        =======================================================================
+      -->
+      <article aria-labelledby="heading-advisor">
+        <h3 id="heading-advisor">Cố vấn Khoa học &amp; Đầu tư Chiến lược</h3>
+        <blockquote cite="https://suiko.ai/advisors/quote">
+          <p>
+            <em>"Thế giới không chỉ cần thêm một mô hình ngôn ngữ nghìn tỷ tham số đắt đỏ ở Silicon Valley. Thị trường đang khao khát những mô hình đa phương thức tinh gọn, hoạt động xuất sắc trên phần cứng chi phí thấp và thấu hiểu sâu sắc tiếng nói của các nền kinh tế đang phát triển. Suiko AI đang đi đúng vào tâm điểm của làn sóng bùng nổ tiếp theo."</em>
+          </p>
+        </blockquote>
+        <p>
+          &mdash; <cite>Giáo sư David Miller, Cố vấn Cấp cao tại Quỹ Đầu tư Công nghệ Tiên phong, Cựu Giám đốc Kỹ thuật AI Đám mây</cite>.
+        </p>
+      </article>
+      <hr>
+    </section>
+
+    <!-- 
+      =========================================================================
+      SECTION 6: CÂU HỎI THƯỜNG GẶP CỦA NHÀ ĐẦU TƯ (INVESTOR FAQ & DUE DILIGENCE)
+      - Vai trò ngữ nghĩa HTML5: Khu vực giải đáp thắc mắc và cung cấp thông tin thẩm định chuyên sâu.
+      - Ý nghĩa đối với trang gọi vốn: Chủ động tháo gỡ các rào cản tâm lý và mối lo ngại phổ biến 
+        của các nhà đầu tư mạo hiểm (về mô hình kinh doanh mã nguồn mở, nguy cơ cạnh tranh từ Big Tech, 
+        và chiến lược bảo vệ tài sản trí tuệ).
+      =========================================================================
+    -->
+    <section id="faq" aria-labelledby="heading-faq">
+      <header>
+        <h2 id="heading-faq">Giải đáp Thắc mắc Thẩm định Đầu tư (Investor Due Diligence FAQ)</h2>
+        <p>Làm rõ mô hình kinh doanh, tính bền vững và chiến lược phòng thủ của Suiko AI.</p>
+      </header>
+
+      <!-- 
+        =======================================================================
+        THẺ: <details> & <summary>
+        - Vai trò ngữ nghĩa HTML5: <details> tạo ra một tiện ích hiển thị/ẩn thông tin chi tiết tương tác 
+          thuần túy mà không cần bất kỳ đoạn mã JavaScript nào; <summary> là tiêu đề bấm để mở ra.
+        - Ý nghĩa đối với trang gọi vốn: Cho phép trang web duy trì bố cục gọn gàng, súc tích 
+          nhưng vẫn cung cấp đầy đủ thông tin pháp lý và kỹ thuật chuyên sâu khi nhà đầu tư muốn tìm hiểu kỹ.
+        =======================================================================
+      -->
+      <details>
+        <summary><strong>1. Mô hình Mã nguồn mở tạo ra doanh thu và bảo vệ giá trị kinh doanh bằng cách nào?</strong></summary>
+        <p>
+          Suiko AI áp dụng mô hình kinh doanh <em>Open-Core kết hợp Enterprise Support</em> đã được chứng minh thành công bởi Red Hat, MongoDB và Mistral AI:
+        </p>
+        <ul>
+          <li><strong>Mã nguồn mở (Bản tiêu chuẩn):</strong> Trọng số cơ bản và mã nguồn suy luận được mở để thu hút hàng chục nghìn lập trình viên, tạo hiệu ứng mạng lưới (Network Effects) và khẳng định vị thế thương hiệu toàn cầu với chi phí marketing bằng 0.</li>
+          <li><strong>Bản quyền Doanh nghiệp (Suiko Enterprise Suite):</strong> Cung cấp các công cụ độc quyền đóng gói sẵn: bộ quản trị bảo mật phân quyền RBAC, bảng điều khiển giám sát tài nguyên GPU theo thời gian thực, module kiểm soát ảo giác (Hallucination Guardrails) và giải pháp tích hợp On-premise chìa khóa trao tay.</li>
+          <li><strong>Dịch vụ Fine-tuning &amp; Hỗ trợ Chuyên gia (SLA):</strong> Thu phí định kỳ hàng tháng từ các ngân hàng và tập đoàn viễn thông để cam kết thời gian khắc phục sự cố kỹ thuật và tối ưu mô hình trên dữ liệu mật của họ.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary><strong>2. Suiko AI phòng thủ thế nào trước sự cạnh tranh từ các gã khổng lồ như OpenAI hay Meta?</strong></summary>
+        <p>
+          Các tập đoàn Big Tech toàn cầu tập trung vào bài toán phục vụ đại chúng toàn cầu với chi phí khổng lồ, do đó để lại 2 "khoảng trống phòng thủ" cực lớn mà họ không thể tối ưu tốt bằng chúng tôi:
+        </p>
+        <ul>
+          <li><strong>Đặc quyền Dữ liệu Bản địa &amp; Văn hóa:</strong> Dữ liệu tiếng bản địa tại các thị trường mới nổi không có sẵn nhiều trên Internet công cộng. Đội ngũ Suiko AI làm việc trực tiếp tại chỗ với các đối tác sở tại để xây dựng kho ngữ liệu chuyên ngành độc quyền mà các web-crawler phương Tây không thể tiếp cận.</li>
+          <li><strong>Tính Khả thi về Mặt Kinh tế:</strong> Khách hàng tại Đông Nam Á không thể chi trả mức giá API của OpenAI cho quy mô hàng triệu người dùng. Suiko AI mang lại hiệu quả chi phí gấp 5 lần trên phần cứng phổ thông &mdash; điều mà các mô hình siêu lớn của Big Tech không thể đáp ứng.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary><strong>3. Kế hoạch thoái vốn (Exit Strategy) dự kiến cho nhà đầu tư vòng Seed như thế nào?</strong></summary>
+        <p>
+          Ban sáng lập xây dựng chiến lược mang lại lợi nhuận vượt trội cho nhà đầu tư sớm thông qua 2 kịch bản thoái vốn tiềm năng trong vòng 4 &mdash; 6 năm tới:
+        </p>
+        <ul>
+          <li><strong>Kịch bản 1: Mua lại Chiến lược (Strategic M&amp;A):</strong> Được sáp nhập bởi các tập đoàn công nghệ lớn khu vực (như Grab, Sea Group, GoTo) hoặc các hãng điện toán đám mây quốc tế đang tìm kiếm công nghệ AI bản địa hóa để củng cố thị phần tại Đông Nam Á.</li>
+          <li><strong>Kịch bản 2: Tăng vốn Vòng sau &amp; IPO:</strong> Chuyển đổi cổ phần có lợi nhuận cao qua các vòng Series A, B và hướng tới niêm yết công khai (IPO) trên sàn chứng khoán công nghệ Singapore (SGX) hoặc Nasdaq.</li>
+        </ul>
+      </details>
+      <hr>
+    </section>
+
+    <!-- 
+      =========================================================================
+      SECTION 7: KÊU GỌI HÀNH ĐỘNG & BIỂU MẪU ĐĂNG KÝ ĐẦU TƯ (CTA / INVESTOR FORM)
+      - Vai trò ngữ nghĩa HTML5: Khu vực chuyển đổi (Conversion Section) tập trung thu thập 
+        thông tin cam kết góp vốn và đặt lịch hẹn thẩm định.
+      - Ý nghĩa đối với trang gọi vốn: Biến sự quan tâm của nhà đầu tư thành hành động cụ thể. 
+        Cung cấp biểu mẫu thuần HTML5 tiêu chuẩn để nhà đầu tư điền số tiền cam kết, 
+        tổ chức đại diện và yêu cầu gửi tài liệu SAFE note chính thức.
+      =========================================================================
+    -->
+    <section id="contact" aria-labelledby="heading-contact">
+      <header>
+        <h2 id="heading-contact">Tham gia Vòng Gọi vốn Hạt giống Cùng Suiko AI</h2>
+        <p>Vòng gọi vốn đang mở với số lượng hạn mức có hạn. Hãy kết nối trực tiếp với đội ngũ sáng lập ngay hôm nay.</p>
+      </header>
+
+      <!-- 
+        =======================================================================
+        THẺ: <form>, <fieldset>, <legend>, <label>, <input>, <select>, <textarea>, <button>
+        - Vai trò ngữ nghĩa HTML5: Xây dựng cấu trúc biểu mẫu nhập liệu tiêu chuẩn, có khả năng 
+          kiểm tra tính hợp lệ dữ liệu (HTML5 Form Validation) tự nhiên bằng thuộc tính required, type, min.
+        - Ý nghĩa đối với trang gọi vốn: Giúp đội ngũ sáng lập thu thập dữ liệu thẩm định ban đầu 
+          (Lead Qualification) của nhà đầu tư, phân loại quy mô vé đầu tư (Ticket size) để xếp lịch 
+          gặp gỡ trực tiếp (Due Diligence Call) một cách khoa học.
+        =======================================================================
+      -->
+      <form action="https://suiko.ai/api/v1/investor-inquiry" method="post">
+        <!-- 
+          =====================================================================
+          THẺ: <fieldset> & <legend>
+          - Vai trò ngữ nghĩa HTML5: <fieldset> nhóm các trường biểu mẫu có mối liên kết logic; 
+            <legend> đặt chú thích mô tả mục đích của nhóm trường đó.
+          - Ý nghĩa đối với trang gọi vốn: Tạo sự ngăn nắp, phân định rõ giữa thông tin cá nhân/quỹ 
+            và thông tin cam kết tài chính của nhà đầu tư.
+          =====================================================================
+        -->
+        <fieldset>
+          <legend><strong>Thông tin Nhà đầu tư &amp; Cam kết Góp vốn (Soft Commitment)</strong></legend>
+
+          <p>
+            <label for="investor-name">Họ và tên Nhà đầu tư / Người đại diện (*):</label><br>
+            <input type="text" id="investor-name" name="investor_name" placeholder="Ví dụ: Nguyễn Văn An" required>
+          </p>
+
+          <p>
+            <label for="investor-email">Địa chỉ Email Công vụ / Quỹ (*):</label><br>
+            <input type="email" id="investor-email" name="investor_email" placeholder="ten.nguoi@quydaotu.com" required>
+          </p>
+
+          <p>
+            <label for="investor-phone">Số điện thoại / Telegram / WhatsApp liên hệ (*):</label><br>
+            <input type="tel" id="investor-phone" name="investor_phone" placeholder="+84 901 234 567" required>
+          </p>
+
+          <p>
+            <label for="investor-type">Phân loại Nhà đầu tư (*):</label><br>
+            <select id="investor-type" name="investor_type" required>
+              <option value="">-- Vui lòng chọn loại hình nhà đầu tư --</option>
+              <option value="angel">Nhà đầu tư Cá nhân / Thiên thần (Angel Investor)</option>
+              <option value="vc">Quỹ Đầu tư Mạo hiểm (Venture Capital Fund)</option>
+              <option value="family-office">Văn phòng Quản lý Gia sản (Family Office)</option>
+              <option value="corporate-vc">Quỹ Đầu tư Trực thuộc Tập đoàn (Corporate VC / CVC)</option>
+              <option value="other">Tổ chức Tài chính / Đối tác Chiến lược Khác</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="ticket-size">Hạn mức Đầu tư Dự kiến (USD) (*):</label><br>
+            <select id="ticket-size" name="ticket_size" required>
+              <option value="">-- Vui lòng chọn mức ngân sách --</option>
+              <option value="25k-50k">25.000 USD &mdash; 50.000 USD (Hạn mức Angel)</option>
+              <option value="50k-100k">50.000 USD &mdash; 100.000 USD (Hạn mức Đồng hành)</option>
+              <option value="100k-250k">100.000 USD &mdash; 250.000 USD (Hạn mức Quỹ / Đồng dẫn dắt)</option>
+              <option value="250k-500k">250.000 USD &mdash; 500.000 USD (Nhà đầu tư Dẫn dắt - Lead Investor)</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="investor-notes">Ghi chú hoặc Yêu cầu Tài liệu Thẩm định Thêm (Optional):</label><br>
+            <textarea id="investor-notes" name="investor_notes" rows="4" cols="50" placeholder="Ví dụ: Chúng tôi quan tâm đến bản quyền dữ liệu và mong muốn xếp lịch họp trực tuyến 30 phút cùng CEO..."></textarea>
+          </p>
+
+          <p>
+            <input type="checkbox" id="nda-agreement" name="nda_agreement" required>
+            <label for="nda-agreement">Tôi xác nhận là nhà đầu tư chuyên nghiệp và đồng ý giữ bí mật các thông tin kỹ thuật chưa công bố của Suiko AI.</label>
+          </p>
+
+          <p>
+            <button type="submit"><strong>GỬI ĐĂNG KÝ ĐẦU TƯ &amp; YÊU CẦU HỒ SƠ SAFE</strong></button>
+            <button type="reset">Nhập lại</button>
+          </p>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <!-- 
+    ===========================================================================
+    THẺ: <footer>
+    - Vai trò ngữ nghĩa HTML5: Đại diện cho phần chân trang của tài liệu hoặc của một section, 
+      thường chứa thông tin tác quyền, liên kết điều khoản pháp lý, dữ liệu liên hệ 
+      và các liên kết điều hướng bổ trợ.
+    - Ý nghĩa đối với trang gọi vốn: Đảm bảo tính pháp lý minh bạch (Legal Compliance), 
+      cung cấp đầy đủ thông tin định danh doanh nghiệp, tuyên bố miễn trừ trách nhiệm đầu tư 
+      và các kênh kết nối mạng xã hội chính thức để nhà đầu tư có thể kiểm chứng độc lập.
+    ===========================================================================
+  -->
+  <footer>
+    <!-- 
+      =========================================================================
+      KHỐI CHÍNH CHÂN TRANG: 3 CỘT NỘI DUNG CHUNG MỘT HÀNG
+      1. Văn phòng Điều hành Dự án Suiko AI
+      2. Kênh Kết nối Cộng đồng & Mạng xã hội Chính thức
+      3. Hồ Sơ Thẩm Định Pháp Lý & Kỹ Thuật (Due Diligence Data Room) - Đầy đủ các đường link
+      =========================================================================
+    -->
+    <div class="footer-main-row">
+      <!-- Cột 1: Thông tin Văn phòng & Điều hành -->
+      <div class="footer-col footer-col-office">
+        <!-- 
+          =======================================================================
+          THẺ: <address>
+          - Vai trò ngữ nghĩa HTML5: Cung cấp thông tin liên hệ chính thức của tác giả 
+            hoặc tổ chức sở hữu tài liệu web.
+          - Ý nghĩa đối với trang gọi vốn: Xác thực tính hiện hữu hợp pháp và địa chỉ trụ sở 
+            thực tế của doanh nghiệp.
+          =======================================================================
+        -->
+        <address>
+          <p><strong>VĂN PHÒNG ĐIỀU HÀNH DỰ ÁN SUIKO AI:</strong></p>
+          <p>Công ty Cổ phần Công nghệ Trí tuệ Nhân tạo Suiko (Suiko AI Inc.)</p>
+          <p>Địa chỉ: Tầng 8, Tòa nhà Đổi mới Sáng tạo Quốc gia (NIC), Khu Công nghệ cao Hòa Lạc, Hà Nội, Việt Nam</p>
+          <p>Email Ban Quan hệ Nhà đầu tư (IR): <a href="mailto:investors@suiko.ai">investors@suiko.ai</a></p>
+          <p>Email Điều hành Chung: <a href="mailto:contact@suiko.ai">contact@suiko.ai</a></p>
+          <p>Đường dây nóng Giám đốc Điều hành: <a href="tel:+842488889999">+84 (0) 24 8888 9999</a></p>
+        </address>
+      </div>
+
+      <!-- Cột 2: Kênh Kết nối Cộng đồng & Mạng xã hội -->
+      <div class="footer-col footer-col-social">
+        <h4>Kênh Kết nối Cộng đồng &amp; Mạng xã hội Chính thức</h4>
+        <ul>
+          <li>GitHub: <a href="https://github.com/suiko-ai" rel="noopener noreferrer" target="_blank">github.com/suiko-ai</a></li>
+          <li>Hugging Face Hub: <a href="https://huggingface.co/suiko-ai" rel="noopener noreferrer" target="_blank">huggingface.co/suiko-ai</a></li>
+          <li>LinkedIn: <a href="https://linkedin.com/company/suiko-ai" rel="noopener noreferrer" target="_blank">linkedin.com/company/suiko-ai</a></li>
+          <li>Mạng xã hội X (Twitter): <a href="https://x.com/suiko_ai" rel="noopener noreferrer" target="_blank">x.com/suiko_ai</a></li>
+          <li>Cộng đồng Discord Kỹ sư: <a href="https://discord.gg/suiko-ai" rel="noopener noreferrer" target="_blank">discord.gg/suiko-ai</a></li>
+        </ul>
+      </div>
+
+      <!-- Cột 3: Hồ Sơ Thẩm Định Pháp Lý & Kỹ Thuật (Khôi phục đầy đủ 4 liên kết chi tiết) -->
+      <div class="footer-col footer-col-legal">
+        <h4>Hồ Sơ Thẩm Định Pháp Lý &amp; Kỹ Thuật (Due Diligence Data Room)</h4>
+        <ul>
+          <li><a href="https://suiko.ai/legal/safe-template-ycombinator.pdf" download>Mẫu Thỏa thuận Đầu tư SAFE (YC Post-Money Standard) [PDF]</a></li>
+          <li><a href="https://suiko.ai/whitepaper/suiko-technical-whitepaper-v1.pdf" download>Báo cáo Kỹ thuật Kiến trúc Mô hình (Technical Whitepaper v1.0) [PDF]</a></li>
+          <li><a href="https://suiko.ai/legal/terms-of-service">Điều khoản Sử dụng &amp; Giấy phép Mã nguồn mở Apache 2.0</a></li>
+          <li><a href="https://suiko.ai/legal/privacy-policy">Chính sách Bảo mật Dữ liệu &amp; Tuân thủ AI Toàn cầu</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tuyên bố Miễn trừ Trách nhiệm Đầu tư (Investment Disclaimer) -->
+    <div>
+      <h4>Tuyên bố Miễn trừ Trách nhiệm Rủi ro Đầu tư (Investment Disclaimer)</h4>
+      <p>
+        <!-- 
+          =====================================================================
+          THẺ: <small>
+          - Vai trò ngữ nghĩa HTML5: Biểu thị các ghi chú phụ, văn bản in nhỏ, 
+            điều khoản miễn trừ hoặc văn bản pháp lý thứ cấp.
+          - Ý nghĩa đối với trang gọi vốn: Bắt buộc theo luật chứng khoán và đầu tư mạo hiểm quốc tế, 
+            nhắc nhở nhà đầu tư rằng đầu tư công nghệ khởi nghiệp giai đoạn sớm luôn tiềm ẩn rủi ro 
+            về vốn và tài liệu này không cấu thành một lời mời chào chứng khoán công chúng.
+          =====================================================================
+        -->
+        <small>
+          Thông tin được trình bày trên trang web này chỉ nhằm mục đích cung cấp thông tin ban đầu cho các nhà đầu tư chuyên nghiệp và đối tác chiến lược có đủ điều kiện theo luật định. Trang web này không phải là một bản cáo bạch chào bán chứng khoán công chúng theo luật chứng khoán hiện hành. Các dự báo về tốc độ phát triển, thị phần, hiệu năng mô hình và thời gian triển khai có thể thay đổi tùy thuộc vào biến động thị trường và tiến trình nghiên cứu khoa học thực tế. Nhà đầu tư chịu trách nhiệm tự thực hiện các biện pháp thẩm định chuyên sâu (Due Diligence) trước khi ký kết các thỏa thuận đầu tư ràng buộc.
+        </small>
+      </p>
+    </div>
+
+    <div>
+      <p>
+        <small>
+          Bản quyền &copy; <time datetime="2025">2025</time> &mdash; <time datetime="2026">2026</time> thuộc về <strong>Dự án Suiko AI</strong>. Mọi quyền được bảo lưu.
+        </small>
+      </p>
+      <p>
+        <!-- Liên kết nhảy về đầu trang -->
+        <a href="#top"><strong>[&uarr; Quay lại Đầu trang]</strong></a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- 
+    ===========================================================================
+    NÚT LIÊN HỆ KÊU GỌI VỐN CỐ ĐỊNH PHẬP PHỒNG (FLOATING PULSING CTA BUTTON):
+    - Đặt cố định tại góc dưới cùng bên phải (fixed bottom: 24px, right: 24px, z-index: 999).
+    - Hiệu ứng phập phồng (Pulsating Scale) kết hợp sóng hào quang phát sáng (Breathing Glow Wave).
+    - Dẫn trực tiếp tới Section Biểu mẫu thẩm định và cam kết đầu tư (#contact).
+    ===========================================================================
+  -->
+  <a href="#contact" class="floating-contact-cta" aria-label="Đầu tư ngay hoặc kết nối thẩm định">
+    <span>Đầu tư ngay &bull; Vòng Seed 500K</span>
+  </a>
+</body>
+</html>
